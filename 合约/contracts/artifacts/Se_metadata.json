@@ -1,0 +1,41 @@
+{
+	"compiler": {
+		"version": "0.6.10+commit.00c0fcaf"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"mintpoor.sol": "Se"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"mintpoor.sol": {
+			"keccak256": "0xc45a3290bbdb44a37741a4e083f5aab2775607635fae52928e45e0cea818cfcb",
+			"license": "Apache License",
+			"urls": [
+				"bzz-raw://944369abf6b4a2be68080b4b8ebc6395ee21cc521e3cfa0bf95b5aec5a3fdebf",
+				"dweb:/ipfs/QmakeynFguZkMetSb7dxxqXBwBZe72n3JBaaiabpa42CfX"
+			]
+		}
+	},
+	"version": 1
+}
