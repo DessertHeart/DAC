@@ -72,6 +72,25 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -293,15 +312,35 @@
 			},
 			{
 				"inputs": [],
-				"name": "_DACtotalSupply",
+				"name": "owner",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -343,6 +382,15 @@
 				},
 				"constructor": {
 					"details": "Sets the values for {name} and {symbol}, initializes {decimals} with a default value of 18. To select a different value for {decimals}, use {_setupDecimals}. All three of these values are immutable: they can only be set once during construction."
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				}
 			}
 		},
@@ -367,11 +415,11 @@
 	},
 	"sources": {
 		"DAC.sol": {
-			"keccak256": "0x3d4798361821306eb131e2b4b933b671320b18bbac7176d30b124982c155d7ba",
+			"keccak256": "0xcd6e60aad5b045ca8d4f34324069b49189a36c2a6094fb425fe6c063c52a6168",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4c988bb5f325accb37e4ed469792ef1a60c64e63d176ef9d0b3290501f1c7b3f",
-				"dweb:/ipfs/QmNRJwWGK9zvmwozKNKe5cqGA7Mjo2bypX4EKymFqRH3HZ"
+				"bzz-raw://af79344a325eb884a0b1aec38ee6a4bc2131af22e6e35834f0d4c6233485eea4",
+				"dweb:/ipfs/Qmdr5321wfAZzMy4shUrm2ptCy32fg6NWX6XfYgJDyLu3S"
 			]
 		},
 		"utils/Context.sol": {
@@ -380,6 +428,14 @@
 			"urls": [
 				"bzz-raw://7aa171a3b0aeabd7b31b94cf63eb14df9fd3d2e3a12d5ba3d9a634a789871196",
 				"dweb:/ipfs/QmNwZDsCn4Af9Uyw3syohXAAoe9pAwCuvCm6FZXG3Hv5ka"
+			]
+		},
+		"utils/Ownable.sol": {
+			"keccak256": "0x977bb0fc62a55630e877f7e976dbc4ea1116da1b5f0f285ba7cd27ac2f0e5b20",
+			"license": "Apache License",
+			"urls": [
+				"bzz-raw://03e2b49e1ae99804dace52d83400162fa015616817bfdb301d37524187e45e2c",
+				"dweb:/ipfs/QmdiEvarfRcJk7qdR2BhvCzhPvjjF19qu7gvtteLpd6v8v"
 			]
 		},
 		"utils/SafeMath.sol": {

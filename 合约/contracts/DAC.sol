@@ -3,6 +3,7 @@
 pragma solidity >=0.6.0 <0.8.0;
 import "./utils/Context.sol";
 import "./utils/SafeMath.sol";
+import "./utils/Ownable.sol";
 /**
  * @dev Implementation of the {IERC20} interface.
  *
@@ -27,14 +28,14 @@ import "./utils/SafeMath.sol";
  * functions have been added to mitigate the well-known issues around setting
  * allowances. See {IERC20-approve}.
  */
-contract DAC is Context{
+contract DAC is Context,Ownable{
     using SafeMath for uint256;
 
     mapping (address => uint256) private _DACbalances;
 
     mapping (address => mapping (address => uint256)) private _DACallowances;
 
-    uint256 public _DACtotalSupply;
+    uint256 private _DACtotalSupply;
 
     string private _DACname;
     string private _DACsymbol;
@@ -67,6 +68,10 @@ contract DAC is Context{
         _DACdecimals = 18;
     }
 
+    function AddressDACtransfer(address recipient, uint256 amount) internal onlyOwner virtual  returns (bool)  {
+        _DACtransfer(address(this), recipient, amount);
+        return true;
+    }
     /**
      * @dev Returns the name of the token.
      */

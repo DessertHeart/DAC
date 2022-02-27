@@ -246,19 +246,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "BDDtotalMinted",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "BDDtotalSupply",
 				"outputs": [
 					{
@@ -324,8 +311,21 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newTreasuryListAddr",
+						"type": "address"
+					}
+				],
+				"name": "addTreasuryList",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
-				"name": "_BDDtotalSupply",
+				"name": "allUserBDDAmount",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -337,16 +337,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "getTreasuryList",
+				"outputs": [
 					{
-						"internalType": "address",
-						"name": "_newTreasuryListAddr",
-						"type": "address"
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
 					}
 				],
-				"name": "addTreasuryList",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -392,29 +392,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_buyer",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_usdtamount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_NBBamount",
-						"type": "uint256"
-					}
-				],
-				"name": "purchase",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -538,25 +515,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
-					}
-				],
-				"name": "withDraw",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -611,7 +569,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"poor.sol": "poor"
+			"pool.sol": "poor"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -626,19 +584,19 @@
 	},
 	"sources": {
 		"BDD.sol": {
-			"keccak256": "0x66baa67b4b4ee53c7dd1830888970e5ee1b8221be6cbd6e326db60ca90065522",
+			"keccak256": "0x8fc7557a2e4eaf2957f3753930be563539efb7637cb908202d31ddabc383fea6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://34a270d842f1f12fc15b8a125ebb4000b7721bc63305fd8397402c36a5171b5a",
-				"dweb:/ipfs/QmWpH3TRn2e3wBHBVT87seX6RQ3xf5bRAg6PqQwiQ3oKyN"
+				"bzz-raw://e777fa5d021d468c0c5d244f696a9fe7522bdb1f85bc326498064ebc8767b416",
+				"dweb:/ipfs/QmR39S8UN4CChu3goJftcggKQyfpLjWmeEiCbZ8wAz9A1P"
 			]
 		},
-		"poor.sol": {
-			"keccak256": "0xd264dc694e76d4a61e25bd7372a3e04afdcaafe289c40f0023fe471dfd8a286c",
+		"pool.sol": {
+			"keccak256": "0x36ea140dfa68c0870ff6c6f23d981fe8fca2da17500ff319e00be48fa7d15c46",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://52773d7c84eb1b8033f041b9178162fbe968e620cc6be8246fcf6cbd19575ba8",
-				"dweb:/ipfs/Qme6SF6tQpEJzj3HgGpTLELLEFYTz6noQHVFsBGLw6EHM6"
+				"bzz-raw://9ba1ec9ab3aa91332089133ad5c43d850927b90a8ee55d6ff3b34d62f996577b",
+				"dweb:/ipfs/QmbMx2bdUCynShse5vs1c2kTRjeEdAdnXuYQSoJLvrvcsu"
 			]
 		},
 		"utils/AddressArrayUtils.sol": {

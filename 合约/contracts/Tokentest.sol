@@ -5,6 +5,7 @@ pragma solidity >=0.6.0 <0.8.0;
 import "./utils/Context.sol";
 import "./utils/SafeMath.sol";
 import "./utils/Ownable.sol";
+
 /**
  * @dev Implementation of the {IERC20} interface.
  *
@@ -29,18 +30,18 @@ import "./utils/Ownable.sol";
  * functions have been added to mitigate the well-known issues around setting
  * allowances. See {IERC20-approve}.
  */
-contract BDD is Context,Ownable{
+contract NBB is Context,Ownable{
     using SafeMath for uint256;
 
-    mapping (address => uint256) private _BDDbalances;
+    mapping (address => uint256) private _NBBbalances;
 
-    mapping (address => mapping (address => uint256)) private _BDDallowances;
+    mapping (address => mapping (address => uint256)) private _NBBallowances;
 
-    uint256  private _BDDtotalSupply;
+    uint256  private _NBBtotalSupply;
 
-    string private _BDDname;
-    string private _BDDsymbol;
-    uint8 private _BDDdecimals;
+    string private _NBBname;
+    string private _NBBsymbol;
+    uint8 private _NBBdecimals;
     
     /**
      * @dev Emitted when `value` tokens are moved from one account (`from`) to
@@ -48,13 +49,13 @@ contract BDD is Context,Ownable{
      *
      * Note that `value` may be zero.
      */
-    event BDDTransfer(address indexed from, address indexed to, uint256 value);
+    event NBBTransfer(address indexed from, address indexed to, uint256 value);
 
     /**
      * @dev Emitted when the allowance of a `spender` for an `owner` is set by
      * a call to {approve}. `value` is the new allowance.
      */
-    event BDDApproval(address indexed owner, address indexed spender, uint256 value);
+    event NBBApproval(address indexed owner, address indexed spender, uint256 value);
 
     /**
      * @dev Sets the values for {name} and {symbol}, initializes {decimals} with
@@ -65,29 +66,26 @@ contract BDD is Context,Ownable{
      * All three of these values are immutable: they can only be set once during
      * construction.
      */
-    constructor (string memory name_, string memory symbol_) public {
-        _BDDname = name_;
-        _BDDsymbol = symbol_;
-        _BDDdecimals = 18;
+    constructor (string memory name_, string memory symbol_,uint256 BDDtotalSupply_) public  {
+        _NBBname = name_;
+        _NBBsymbol = symbol_;
+        _NBBdecimals = 18;
+        _NBBmint(address(this),BDDtotalSupply_);
     }
 
-    function AddressBDDtransfer(address recipient, uint256 amount) internal onlyOwner virtual  returns (bool)  {
-        _BDDtransfer(address(this), recipient, amount);
-        return true;
-    }
     /**
      * @dev Returns the name of the token.
      */
-    function BDDname() public view returns (string memory) {
-        return _BDDname;
+    function NBBname() public view returns (string memory) {
+        return _NBBname;
     }
 
     /**
      * @dev Returns the symbol of the token, usually a shorter version of the
      * name.
      */
-    function BDDsymbol() public view returns (string memory) {
-        return _BDDsymbol;
+    function NBBsymbol() public view returns (string memory) {
+        return _NBBsymbol;
     }
 
     /**
@@ -103,22 +101,22 @@ contract BDD is Context,Ownable{
      * no way affects any of the arithmetic of the contract, including
      * {IERC20-balanceOf} and {IERC20-transfer}.
      */
-    function BDDdecimals() public view returns (uint8) {
-        return _BDDdecimals;
+    function NBBdecimals() public view returns (uint8) {
+        return _NBBdecimals;
     }
 
     /**
      * @dev See {IERC20-totalSupply}.
      */
-    function BDDtotalSupply() public view  returns (uint256) {
-        return _BDDtotalSupply;
+    function NBBtotalSupply() public view  returns (uint256) {
+        return _NBBtotalSupply;
     }
 
     /**
      * @dev See {IERC20-balanceOf}.
      */
-    function BDDbalanceOf(address account) public view  returns (uint256) {
-        return _BDDbalances[account];
+    function NBBbalanceOf(address account) public view  returns (uint256) {
+        return _NBBbalances[account];
     }
 
     /**
@@ -129,16 +127,20 @@ contract BDD is Context,Ownable{
      * - `recipient` cannot be the zero address.
      * - the caller must have a balance of at least `amount`.
      */
-    function BDDtransfer(address recipient, uint256 amount) public virtual  returns (bool) {
-        _BDDtransfer(_msgSender(), recipient, amount);
+    function NBBtransfer(address recipient, uint256 amount) public virtual  returns (bool) {
+        _NBBtransfer(_msgSender(), recipient, amount);
+        return true;
+    }
+    function AddressNBBtransfer(address recipient, uint256 amount) public onlyOwner virtual  returns (bool)  {
+        _NBBtransfer(address(this), recipient, amount);
         return true;
     }
 
     /**
      * @dev See {IERC20-allowance}.
      */
-    function BDDallowance(address owner, address spender) public view virtual  returns (uint256) {
-        return _BDDallowances[owner][spender];
+    function NBBallowance(address owner, address spender) public view virtual  returns (uint256) {
+        return _NBBallowances[owner][spender];
     }
 
     /**
@@ -148,8 +150,10 @@ contract BDD is Context,Ownable{
      *
      * - `spender` cannot be the zero address.
      */
-    function BDDapprove(address spender, uint256 amount) public virtual  returns (bool) {
-        _BDDapprove(_msgSender(), spender, amount);
+   
+    
+    function NBBapprove(address spender, uint256 amount) public virtual  returns (bool) {
+        _NBBapprove(_msgSender(), spender, amount);
         return true;
     }
 
@@ -166,9 +170,9 @@ contract BDD is Context,Ownable{
      * - the caller must have allowance for ``sender``'s tokens of at least
      * `amount`.
      */
-    function BDDtransferFrom(address sender, address recipient, uint256 amount) public virtual  returns (bool) {
-        _BDDtransfer(sender, recipient, amount);
-        _BDDapprove(sender, _msgSender(), _BDDallowances[sender][_msgSender()].sub(amount, "ERC20: transfer amount exceeds allowance"));
+    function NBBtransferFrom(address sender, address recipient, uint256 amount) public   virtual  returns (bool) {
+        _NBBtransfer(sender, recipient, amount);
+        _NBBapprove(sender, _msgSender(), _NBBallowances[sender][_msgSender()].sub(amount, "ERC20: transfer amount exceeds allowance"));
         return true;
     }
 
@@ -184,8 +188,8 @@ contract BDD is Context,Ownable{
      *
      * - `spender` cannot be the zero address.
      */
-    function BDDincreaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
-        _BDDapprove(_msgSender(), spender, _BDDallowances[_msgSender()][spender].add(addedValue));
+    function NBBincreaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
+        _NBBapprove(_msgSender(), spender, _NBBallowances[_msgSender()][spender].add(addedValue));
         return true;
     }
 
@@ -203,8 +207,8 @@ contract BDD is Context,Ownable{
      * - `spender` must have allowance for the caller of at least
      * `subtractedValue`.
      */
-    function BDDdecreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
-        _BDDapprove(_msgSender(), spender, _BDDallowances[_msgSender()][spender].sub(subtractedValue, "ERC20: decreased allowance below zero"));
+    function NBBdecreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
+        _NBBapprove(_msgSender(), spender, _NBBallowances[_msgSender()][spender].sub(subtractedValue, "ERC20: decreased allowance below zero"));
         return true;
     }
 
@@ -222,15 +226,15 @@ contract BDD is Context,Ownable{
      * - `recipient` cannot be the zero address.
      * - `sender` must have a balance of at least `amount`.
      */
-    function _BDDtransfer(address sender, address recipient, uint256 amount) internal virtual {
+    function _NBBtransfer(address sender, address recipient, uint256 amount) internal virtual {
         require(sender != address(0), "ERC20: transfer from the zero address");
         require(recipient != address(0), "ERC20: transfer to the zero address");
 
-        _BDDbeforeTokenTransfer(sender, recipient, amount);
+        _NBBbeforeTokenTransfer(sender, recipient, amount);
 
-        _BDDbalances[sender] = _BDDbalances[sender].sub(amount, "ERC20: transfer amount exceeds balance");
-        _BDDbalances[recipient] = _BDDbalances[recipient].add(amount);
-        emit BDDTransfer(sender, recipient, amount);
+        _NBBbalances[sender] = _NBBbalances[sender].sub(amount, "ERC20: transfer amount exceeds balance");
+        _NBBbalances[recipient] = _NBBbalances[recipient].add(amount);
+        emit NBBTransfer(sender, recipient, amount);
     }
 
     /** @dev Creates `amount` tokens and assigns them to `account`, increasing
@@ -242,14 +246,14 @@ contract BDD is Context,Ownable{
      *
      * - `to` cannot be the zero address.
      */
-    function _BDDmint(address account, uint256 amount) internal virtual {
+    function _NBBmint(address account, uint256 amount) internal virtual {
         require(account != address(0), "ERC20: mint to the zero address");
 
-        _BDDbeforeTokenTransfer(address(0), account, amount);
+        _NBBbeforeTokenTransfer(address(0), account, amount);
 
-        _BDDtotalSupply = _BDDtotalSupply.add(amount);
-        _BDDbalances[account] = _BDDbalances[account].add(amount);
-        emit BDDTransfer(address(0), account, amount);
+        _NBBtotalSupply = _NBBtotalSupply.add(amount);
+        _NBBbalances[account] = _NBBbalances[account].add(amount);
+        emit NBBTransfer(address(0), account, amount);
     }
 
     /**
@@ -263,14 +267,14 @@ contract BDD is Context,Ownable{
      * - `account` cannot be the zero address.
      * - `account` must have at least `amount` tokens.
      */
-    function _burn(address account, uint256 amount) internal virtual {
+    function _NBBburn(address account, uint256 amount) internal virtual {
         require(account != address(0), "ERC20: burn from the zero address");
 
-        _BDDbeforeTokenTransfer(account, address(0), amount);
+        _NBBbeforeTokenTransfer(account, address(0), amount);
 
-        _BDDbalances[account] = _BDDbalances[account].sub(amount, "ERC20: burn amount exceeds balance");
-        _BDDtotalSupply = _BDDtotalSupply.sub(amount);
-        emit BDDTransfer(account, address(0), amount);
+        _NBBbalances[account] = _NBBbalances[account].sub(amount, "ERC20: burn amount exceeds balance");
+        _NBBtotalSupply = _NBBtotalSupply.sub(amount);
+        emit NBBTransfer(account, address(0), amount);
     }
 
     /**
@@ -286,12 +290,12 @@ contract BDD is Context,Ownable{
      * - `owner` cannot be the zero address.
      * - `spender` cannot be the zero address.
      */
-    function _BDDapprove(address owner, address spender, uint256 amount) internal virtual {
+    function _NBBapprove(address owner, address spender, uint256 amount) internal virtual {
         require(owner != address(0), "ERC20: approve from the zero address");
         require(spender != address(0), "ERC20: approve to the zero address");
 
-        _BDDallowances[owner][spender] = amount;
-        emit BDDApproval(owner, spender, amount);
+        _NBBallowances[owner][spender] = amount;
+        emit NBBApproval(owner, spender, amount);
     }
 
     /**
@@ -301,8 +305,8 @@ contract BDD is Context,Ownable{
      * applications that interact with token contracts will not expect
      * {decimals} to ever change, and may work incorrectly if it does.
      */
-    function _BDDsetupDecimals(uint8 decimals_) internal {
-        _BDDdecimals = decimals_;
+    function _NBBsetupDecimals(uint8 decimals_) internal {
+        _NBBdecimals = decimals_;
     }
 
     /**
@@ -319,5 +323,5 @@ contract BDD is Context,Ownable{
      *
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
-    function _BDDbeforeTokenTransfer(address from, address to, uint256 amount) internal virtual { }
+    function _NBBbeforeTokenTransfer(address from, address to, uint256 amount) internal virtual { }
 }

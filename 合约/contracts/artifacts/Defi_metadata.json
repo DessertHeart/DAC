@@ -9,23 +9,48 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "_poolname",
+						"name": "BDDname_",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "_poolsymbol",
+						"name": "BDDsymbol_",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "BDDtotalMint",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "DACname_",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "_DACname",
+						"name": "DACsymbol_",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "DACtotalMint",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "NBBname_",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "_DACsymbol",
+						"name": "NBBsymbol_",
 						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "NBBtotalMint",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -137,6 +162,56 @@
 					{
 						"indexed": true,
 						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "NBBApproval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "NBBTransfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
 						"name": "previousOwner",
 						"type": "address"
 					},
@@ -149,6 +224,68 @@
 				],
 				"name": "OwnershipTransferred",
 				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_buyer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Purchase",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_withDrawer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "WithDraw",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "AddressNBBtransfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -299,19 +436,6 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "BDDtotalMinted",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -604,8 +728,123 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "NBBallowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "NBBapprove",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "NBBbalanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
-				"name": "Reward",
+				"name": "NBBdecimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "subtractedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "NBBdecreaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "addedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "NBBincreaseAllowance",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -618,7 +857,33 @@
 			},
 			{
 				"inputs": [],
-				"name": "_BDDtotalSupply",
+				"name": "NBBname",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "NBBsymbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "NBBtotalSupply",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -630,16 +895,69 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "_DACtotalSupply",
-				"outputs": [
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"name": "NBBtransfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "NBBtransferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Reward",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -657,12 +975,38 @@
 			},
 			{
 				"inputs": [],
-				"name": "dayMintAmount",
+				"name": "allUserBDDAmount",
 				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dayRewardAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTreasuryList",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
 					}
 				],
 				"stateMutability": "view",
@@ -690,6 +1034,19 @@
 					}
 				],
 				"name": "isVip",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "needDeflation",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -861,19 +1218,18 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "withDrawer",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
 						"name": "_amount",
 						"type": "uint256"
 					}
 				],
 				"name": "withDraw",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -946,6 +1302,39 @@
 				"DACtransferFrom(address,address,uint256)": {
 					"details": "See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`."
 				},
+				"NBBallowance(address,address)": {
+					"details": "See {IERC20-allowance}."
+				},
+				"NBBapprove(address,uint256)": {
+					"details": "See {IERC20-approve}. Requirements: - `spender` cannot be the zero address."
+				},
+				"NBBbalanceOf(address)": {
+					"details": "See {IERC20-balanceOf}."
+				},
+				"NBBdecimals()": {
+					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is called. NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
+				},
+				"NBBdecreaseAllowance(address,uint256)": {
+					"details": "Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
+				},
+				"NBBincreaseAllowance(address,uint256)": {
+					"details": "Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address."
+				},
+				"NBBname()": {
+					"details": "Returns the name of the token."
+				},
+				"NBBsymbol()": {
+					"details": "Returns the symbol of the token, usually a shorter version of the name."
+				},
+				"NBBtotalSupply()": {
+					"details": "See {IERC20-totalSupply}."
+				},
+				"NBBtransfer(address,uint256)": {
+					"details": "See {IERC20-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`."
+				},
+				"NBBtransferFrom(address,address,uint256)": {
+					"details": "See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`."
+				},
 				"owner()": {
 					"details": "Returns the address of the current owner."
 				},
@@ -977,36 +1366,52 @@
 		"remappings": []
 	},
 	"sources": {
+		"ABDK.sol": {
+			"keccak256": "0xe5f6a2136edb5b6c5f28e851e0fb7d3cbe149f72a8c7d5664a9313227209cd9e",
+			"license": "Apache License",
+			"urls": [
+				"bzz-raw://d8f7d77eb72fea935c3b1e4b7929be8c3423fe02ccfe9ec9d6d5ad0ab4bde4a3",
+				"dweb:/ipfs/QmfJob9F3Kc2H8FGBG6BWWvELxnsEF3njCvEAZ1Wbd98wF"
+			]
+		},
 		"BDD.sol": {
-			"keccak256": "0x66baa67b4b4ee53c7dd1830888970e5ee1b8221be6cbd6e326db60ca90065522",
+			"keccak256": "0x8fc7557a2e4eaf2957f3753930be563539efb7637cb908202d31ddabc383fea6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://34a270d842f1f12fc15b8a125ebb4000b7721bc63305fd8397402c36a5171b5a",
-				"dweb:/ipfs/QmWpH3TRn2e3wBHBVT87seX6RQ3xf5bRAg6PqQwiQ3oKyN"
+				"bzz-raw://e777fa5d021d468c0c5d244f696a9fe7522bdb1f85bc326498064ebc8767b416",
+				"dweb:/ipfs/QmR39S8UN4CChu3goJftcggKQyfpLjWmeEiCbZ8wAz9A1P"
 			]
 		},
 		"DAC.sol": {
-			"keccak256": "0x3d4798361821306eb131e2b4b933b671320b18bbac7176d30b124982c155d7ba",
+			"keccak256": "0xcd6e60aad5b045ca8d4f34324069b49189a36c2a6094fb425fe6c063c52a6168",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4c988bb5f325accb37e4ed469792ef1a60c64e63d176ef9d0b3290501f1c7b3f",
-				"dweb:/ipfs/QmNRJwWGK9zvmwozKNKe5cqGA7Mjo2bypX4EKymFqRH3HZ"
+				"bzz-raw://af79344a325eb884a0b1aec38ee6a4bc2131af22e6e35834f0d4c6233485eea4",
+				"dweb:/ipfs/Qmdr5321wfAZzMy4shUrm2ptCy32fg6NWX6XfYgJDyLu3S"
+			]
+		},
+		"NBB.sol": {
+			"keccak256": "0x8b2e4477cf349e59b76e99397ddd7236fa3aefbb8930ef896231969be59df172",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5edd421b58c89510800301ec7ef18cf779646a0b674d9a5a3538a988ce90ad08",
+				"dweb:/ipfs/QmaWbJ23iaZ6JfEaG412jbKTU1Yr6q4WD8hJkwbsoZr3co"
 			]
 		},
 		"defi.sol": {
-			"keccak256": "0x0a89c4e622d6b035e9f568663a30e05adf73b4b9c91a65616d0e798df2828b52",
+			"keccak256": "0xc212b058648494b3deab2c8d881461ae6770534268a808b5fb51f17bdce9aaa2",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://bddbe398fbacd2c4771ddbd16a27ba119cef359c2a6ecd2c7a5254e08f2e1cbe",
-				"dweb:/ipfs/Qma6xb6Mi7szzsiigFXQNTS9Mu12UCaeByuTYbppch5GtQ"
+				"bzz-raw://ae6f5dfbb7efe0ee602b47afc0868d8083ce7df172eaa00627ccd08e9667cb0b",
+				"dweb:/ipfs/QmV8agjSz8PtL6eEBsSvRmSdt5YvAyoMSwJ2jEYfhgCmbM"
 			]
 		},
-		"poor.sol": {
-			"keccak256": "0xedaf8e712f634c63a7338f89581cd67f1b6d32699bc239abea32b6bf33e35a91",
+		"pool.sol": {
+			"keccak256": "0x36ea140dfa68c0870ff6c6f23d981fe8fca2da17500ff319e00be48fa7d15c46",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://4a6df9d1931a5d34918aace5e1d879cc0084cfe9998dd65a4687d8c2d3942c8d",
-				"dweb:/ipfs/QmQJbsX5XbKa6qc1CqHaX78nhwUQVgfLi1VYxgZY8qqcN8"
+				"bzz-raw://9ba1ec9ab3aa91332089133ad5c43d850927b90a8ee55d6ff3b34d62f996577b",
+				"dweb:/ipfs/QmbMx2bdUCynShse5vs1c2kTRjeEdAdnXuYQSoJLvrvcsu"
 			]
 		},
 		"utils/AddressArrayUtils.sol": {
