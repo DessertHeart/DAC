@@ -65,7 +65,7 @@ contract DAC is Context,Ownable{
     constructor (string memory name_, string memory symbol_) public {
         _DACname = name_;
         _DACsymbol = symbol_;
-        _DACdecimals = 18;
+        _DACdecimals = 6;
     }
 
     function AddressDACtransfer(address recipient, uint256 amount) internal onlyOwner virtual  returns (bool)  {

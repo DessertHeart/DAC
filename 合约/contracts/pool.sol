@@ -20,9 +20,8 @@ pragma solidity 0.6.10;
 
 import { BDD } from "./BDD.sol";
 import { AddressArrayUtils } from "./utils/AddressArrayUtils.sol";
-import { Ownable } from "./utils/Ownable.sol";
 
-contract poor is Ownable,BDD {
+contract poor is BDD {
     
     using AddressArrayUtils for address[];
     /*----------------参数-------------------*/
@@ -33,7 +32,7 @@ contract poor is Ownable,BDD {
     address[] public treasuryList;
     
     //每个用户对应的债券量
-    mapping(address=>uint256) public userBDDMount;
+    mapping(address=>uint256) public userBDDAMount;
 
     //用户是否已经成为Vip
     mapping(address=>bool) public isVip;
@@ -46,6 +45,12 @@ contract poor is Ownable,BDD {
     
     //用户分红量
     mapping (address => uint256) public userRewards;
+
+    //已经销毁的NBB
+    uint256 public destroiedNBB;
+
+    //已经销毁的usdt
+    uint256 public destroiedUSDT;
 
     //传入债券的名字和符号
     constructor(

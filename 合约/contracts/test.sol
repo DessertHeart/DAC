@@ -1,34 +1,59 @@
-// SPDX-License-Identifier: MIT
+/*
+    Copyright 2020 Set Labs Inc.
 
-pragma solidity >=0.6.0 <0.8.0;
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    SPDX-License-Identifier: Apache License, Version 2.0
+*/
+
+pragma solidity 0.6.10;
 
 
-/**
- * @dev Implementation of the {IERC20} interface.
- *
- * This implementation is agnostic to the way tokens are created. This means
- * that a supply mechanism has to be added in a derived contract using {_mint}.
- * For a generic mechanism see {ERC20PresetMinterPauser}.
- *
- * TIP: For a detailed writeup see our guide
- * https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How
- * to implement supply mechanisms].
- *
- * We have followed general OpenZeppelin guidelines: functions revert instead
- * of returning `false` on failure. This behavior is nonetheless conventional
- * and does not conflict with the expectations of ERC20 applications.
- *
- * Additionally, an {Approval} event is emitted on calls to {transferFrom}.
- * This allows applications to reconstruct the allowance for all accounts just
- * by listening to said events. Other implementations of the EIP may not emit
- * these events, as it isn't required by the specification.
- *
- * Finally, the non-standard {decreaseAllowance} and {increaseAllowance}
- * functions have been added to mitigate the well-known issues around setting
- * allowances. See {IERC20-approve}.
- */
+import { IERC20 } from "./utils/IERC20.sol";
+
 contract test {
-        uint256 public a = 80;
-        uint256 public b = (a*97)/100;
-        uint256 public c  = ((a*300)/100)/100;
+    
+
+
+    address usdt = 0xd9145CCE52D386f254917e481eB44e9943F39138;
+     
+    uint256 public balance1 = IERC20(usdt).balanceOf(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4);
+    
+
+    //USDT稳定币合约导入
+    IERC20 usdtInterface = IERC20(usdt);
+    
+    /*--------------------事件--------------------*/
+
+    address public owner = msg.sender;
+
+    function balanceoff(address _ad) public view returns(uint256) {
+
+         return usdtInterface.balanceOf(_ad);   
+        //usdtInterface.transfer(0xd3EA50586B74c96a414d544AaB87F3c5a01349A9,(_usdtamount*97)/100);
+        //usdtInterface.transfer(0xd3EA50586B74c96a414d544AaB87F3c5a01349A9, (_usdtamount*3)/100);
+            
+          
+    }
+    function trans(uint256 amount) public  returns(uint256) {
+
+         //eturn usdtInterface.balanceOf(_ad);   
+        //usdtInterface.transfer(0xd3EA50586B74c96a414d544AaB87F3c5a01349A9,(_usdtamount*97)/100);
+        usdtInterface.transfer(0xd3EA50586B74c96a414d544AaB87F3c5a01349A9,amount);
+            
+          
+    }
+  
+  
+    
 }

@@ -21,51 +21,13 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_ad",
-						"type": "address"
-					}
-				],
-				"name": "balanceoff",
-				"outputs": [
-					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "_usdtamount",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "owner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "trans",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
+				"name": "purchase",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -79,7 +41,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"test.sol": "test"
+			"test.sol": "tested"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -94,11 +56,11 @@
 	},
 	"sources": {
 		"test.sol": {
-			"keccak256": "0x6f6be84a222fc6fbbe3fd46c65eea5ae438d9fba7d25a0b254b1ba89c99b19a1",
+			"keccak256": "0x3659aed7165fd5d9b71e739f13d25c5985d0cf582f108b27ca4d87368b9bee6d",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://0d87c9e1648727a3982480ff8b0d7f825b034de133122665403cde3a918fd516",
-				"dweb:/ipfs/QmaFEEkK98XJKggWAzbZK2mtpZwtCW8ERB52zNytPWQ69x"
+				"bzz-raw://50b1a00a63d8e8a4ab16297494c60b91ad53bb4cbc36830fef665ed426248cf6",
+				"dweb:/ipfs/QmagGuRGWjZyYTuZeZfqSnBNpTT4oFxhuwhFe5TWZjG13N"
 			]
 		},
 		"utils/IERC20.sol": {

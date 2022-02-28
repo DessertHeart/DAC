@@ -1001,6 +1001,32 @@
 			},
 			{
 				"inputs": [],
+				"name": "destroiedNBB",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "destroiedUSDT",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getTreasuryList",
 				"outputs": [
 					{
@@ -1166,7 +1192,7 @@
 						"type": "address"
 					}
 				],
-				"name": "userBDDMount",
+				"name": "userBDDAMount",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -1366,52 +1392,52 @@
 		"remappings": []
 	},
 	"sources": {
-		"ABDK.sol": {
-			"keccak256": "0xe5f6a2136edb5b6c5f28e851e0fb7d3cbe149f72a8c7d5664a9313227209cd9e",
-			"license": "Apache License",
-			"urls": [
-				"bzz-raw://d8f7d77eb72fea935c3b1e4b7929be8c3423fe02ccfe9ec9d6d5ad0ab4bde4a3",
-				"dweb:/ipfs/QmfJob9F3Kc2H8FGBG6BWWvELxnsEF3njCvEAZ1Wbd98wF"
-			]
-		},
 		"BDD.sol": {
-			"keccak256": "0x8fc7557a2e4eaf2957f3753930be563539efb7637cb908202d31ddabc383fea6",
+			"keccak256": "0xfa4fbe38dfdd5730b8549a05f658ec4bbf8730ea0127643a72aa4219dcfb7f00",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e777fa5d021d468c0c5d244f696a9fe7522bdb1f85bc326498064ebc8767b416",
-				"dweb:/ipfs/QmR39S8UN4CChu3goJftcggKQyfpLjWmeEiCbZ8wAz9A1P"
+				"bzz-raw://b904733cff71e2f8ce263a7576964186731d99917027337b0f273e956f275161",
+				"dweb:/ipfs/QmZxPVnrpYnJV46G3MFkNd6qqcU1F8BZxLr2f5eEfThFHP"
 			]
 		},
 		"DAC.sol": {
-			"keccak256": "0xcd6e60aad5b045ca8d4f34324069b49189a36c2a6094fb425fe6c063c52a6168",
+			"keccak256": "0xeee50cec44a413495b976eec9b94ce7ac236c6028878c50665bea1afec737db9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://af79344a325eb884a0b1aec38ee6a4bc2131af22e6e35834f0d4c6233485eea4",
-				"dweb:/ipfs/Qmdr5321wfAZzMy4shUrm2ptCy32fg6NWX6XfYgJDyLu3S"
+				"bzz-raw://964a181446228cf648af7826aaefda227ad533a16ccfee94d78cb32ccfd3e478",
+				"dweb:/ipfs/Qmdp3fHm9SRQ3bXErV8aaynf8EbQqR3e4LfEmGgVq26oNd"
+			]
+		},
+		"IBEP20.sol": {
+			"keccak256": "0x53a15f94fe5cd784a8a3cdebd8eb4eecd0e5943dc3e0efd8287b5ef26482ebaf",
+			"license": "Apache License",
+			"urls": [
+				"bzz-raw://0bda0a9760d95b90b0b4e0286b428d857e4bf37369c4a558c64317a2369dde06",
+				"dweb:/ipfs/QmSzmrp7fDuTMYn5KmgHtQujcourkE5WNbcVcPbh4PNVqd"
 			]
 		},
 		"NBB.sol": {
-			"keccak256": "0x8b2e4477cf349e59b76e99397ddd7236fa3aefbb8930ef896231969be59df172",
+			"keccak256": "0x0ee8527ab72be8802f71ba50879a72ecf14d38be032f260ba97668ce9240f755",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5edd421b58c89510800301ec7ef18cf779646a0b674d9a5a3538a988ce90ad08",
-				"dweb:/ipfs/QmaWbJ23iaZ6JfEaG412jbKTU1Yr6q4WD8hJkwbsoZr3co"
+				"bzz-raw://2ec57c5b8f7ca2c88b36faee9455bebc80e30f6d164a3d462a9c2e7fc9e6a1ab",
+				"dweb:/ipfs/QmY1FmoNYvvfbhM7YoaV8M1HwTALew7gxKoUty6j73h4Sg"
 			]
 		},
 		"defi.sol": {
-			"keccak256": "0xc212b058648494b3deab2c8d881461ae6770534268a808b5fb51f17bdce9aaa2",
+			"keccak256": "0xe9a611a34dee638f7b99fc26677626f56d4b375c0dc39ff7bb960a49aee51f89",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://ae6f5dfbb7efe0ee602b47afc0868d8083ce7df172eaa00627ccd08e9667cb0b",
-				"dweb:/ipfs/QmV8agjSz8PtL6eEBsSvRmSdt5YvAyoMSwJ2jEYfhgCmbM"
+				"bzz-raw://5bf4ef8d3dd01d8b7ed28a7adf238feb6ae6d24272a35fe0f1ebd8633fa8ee8c",
+				"dweb:/ipfs/QmdTcJiPS7B7EGv1JhQF6xZfV6cWAE8d5PG64MJaE1poef"
 			]
 		},
 		"pool.sol": {
-			"keccak256": "0x36ea140dfa68c0870ff6c6f23d981fe8fca2da17500ff319e00be48fa7d15c46",
+			"keccak256": "0xd43c68487e7e90f18e90d7ccb9001eb06687ce6d94f43a348ff47a30b9c6fe00",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://9ba1ec9ab3aa91332089133ad5c43d850927b90a8ee55d6ff3b34d62f996577b",
-				"dweb:/ipfs/QmbMx2bdUCynShse5vs1c2kTRjeEdAdnXuYQSoJLvrvcsu"
+				"bzz-raw://d81392eb9a9ced155fc715fa7a95e39ac7b0dcef9feb5fba3335f942d374fd1e",
+				"dweb:/ipfs/QmTPriQAsNxFwT3zy5fdhcXgheqnUeERwzkuLjN3K9SW1c"
 			]
 		},
 		"utils/AddressArrayUtils.sol": {

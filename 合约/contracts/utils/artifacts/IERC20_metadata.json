@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.12+commit.f00d7308"
+		"version": "0.6.10+commit.00c0fcaf"
 	},
 	"language": "Solidity",
 	"output": {
@@ -139,7 +139,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "recipient",
 						"type": "address"
 					},
 					{
@@ -163,12 +163,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "from",
+						"name": "sender",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "to",
+						"name": "recipient",
 						"type": "address"
 					},
 					{
@@ -191,15 +191,6 @@
 		],
 		"devdoc": {
 			"details": "Interface of the ERC20 standard as defined in the EIP.",
-			"events": {
-				"Approval(address,address,uint256)": {
-					"details": "Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve}. `value` is the new allowance."
-				},
-				"Transfer(address,address,uint256)": {
-					"details": "Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero."
-				}
-			},
-			"kind": "dev",
 			"methods": {
 				"allowance(address,address)": {
 					"details": "Returns the remaining number of tokens that `spender` will be allowed to spend on behalf of `owner` through {transferFrom}. This is zero by default. This value changes when {approve} or {transferFrom} are called."
@@ -214,25 +205,22 @@
 					"details": "Returns the amount of tokens in existence."
 				},
 				"transfer(address,uint256)": {
-					"details": "Moves `amount` tokens from the caller's account to `to`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
+					"details": "Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
 				},
 				"transferFrom(address,address,uint256)": {
-					"details": "Moves `amount` tokens from `from` to `to` using the allowance mechanism. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
+					"details": "Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
 				}
-			},
-			"version": 1
+			}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			".deps/npm/@openzeppelin/contracts/token/ERC20/IERC20.sol": "IERC20"
+			"utils/IERC20.sol": "IERC20"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -244,12 +232,12 @@
 		"remappings": []
 	},
 	"sources": {
-		".deps/npm/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-			"keccak256": "0xbbc8ac883ac3c0078ce5ad3e288fbb3ffcc8a30c3a98c0fda0114d64fc44fca2",
+		"utils/IERC20.sol": {
+			"keccak256": "0x1cf8c1e1a8a8f60671d426bcedba75f5f0509dc74789e2d2475791c0596c33d1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://87a7a5d2f6f63f84598af02b8c50ca2df2631cb8ba2453e8d95fcb17e4be9824",
-				"dweb:/ipfs/QmR76hqtAcRqoFj33tmNjcWTLrgNsAaakYwnKZ8zoJtKei"
+				"bzz-raw://687bcf000696228ec0ab4f0a4a694c5d66386a03e3accb981882e44c267ecc2a",
+				"dweb:/ipfs/QmbbfbCnBKTiqC1avw89kfA3wx8nmJWAWL7AAdu2p8DrHp"
 			]
 		}
 	},

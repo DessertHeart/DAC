@@ -68,7 +68,7 @@ contract BDD is Context,Ownable{
     constructor (string memory name_, string memory symbol_) public {
         _BDDname = name_;
         _BDDsymbol = symbol_;
-        _BDDdecimals = 18;
+        _BDDdecimals = 6;
     }
 
     function AddressBDDtransfer(address recipient, uint256 amount) internal onlyOwner virtual  returns (bool)  {

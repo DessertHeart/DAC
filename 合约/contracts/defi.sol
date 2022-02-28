@@ -23,22 +23,24 @@ import "./utils/SafeMath.sol";
 import { poor } from "./pool.sol";
 import { DAC } from "./DAC.sol";
 import { NBB } from "./NBB.sol";
-import { ABDKMath64x64 } from "./ABDK.sol";
-//Tether-USDT接口
-interface IERC20 {
-  function transfer(address recipient, uint256 amount) external;
- 
-}
+
+import { IBEP20 } from "./IBEP20.sol";
+
 contract Defi is poor,DAC,NBB{
-    using ABDKMath64x64 for uint256;
     
     /*----------------参数-------------------*/
 
     //每日奖励的数量
     uint256 public dayRewardAmount = 2660;
 
+
+    //币安主链的usdt合约地址
+    address usdt = 0x55d398326f99059fF775485246999027B3197955;
+     
+    
+
     //USDT稳定币合约导入
-    IERC20 usdtInterface = IERC20(0x1B4Fdea036675Ba29c6a6d7aC8Cc0816Eabac3A4);
+    IBEP20 usdtInterface = IBEP20(usdt);
     
     /*--------------------事件--------------------*/
 
@@ -72,7 +74,6 @@ contract Defi is poor,DAC,NBB{
         _NBBmint(address(this),NBBtotalMint);
     }
     
-   
 
     //每日分红一次
     function Reward() public onlyOwner returns(bool){
@@ -88,7 +89,7 @@ contract Defi is poor,DAC,NBB{
         for(uint256 i =0 ;i < UserNumber ; i++ ){
 
             //确定每个地址的每日的分红量  DAC个人产币数据 =（个人债券持有张数\全网总债券张数）•每日DAC产出量----------<等待改动  小数会出问题
-            uint256 dayEveryUserReward = (((userBDDMount[vips[i]]*100000000) / allUserBDDAmount) * dayRewardAmount)/100000000;
+            uint256 dayEveryUserReward = (((userBDDAMount[vips[i]]*100000000) / allUserBDDAmount) * dayRewardAmount)/100000000;
 
             //DAC每日分红的时候不需要转给他们,等他们提现的时候转给他们
             userRewards[vips[i]] = userRewards[vips[i]] + dayEveryUserReward;
@@ -109,18 +110,24 @@ contract Defi is poor,DAC,NBB{
         if(isVip[_buyer] == true){
             
             //修改用户对应的债券数量
-            userBDDMount[_buyer] = userBDDMount[_buyer] + amount;
+            userBDDAMount[_buyer] + amount;
 
             //将对应债券数量从合约转给用户
             AddressBDDtransfer(_buyer,amount);
            
             //按比例把usdt分别转账给三个金库地址和流动池----等待完成，如何使用小数-----<<<<<<等待搞定
             //97%三个地址分443   3%进入流动性矿池
-            usdtInterface.transfer(treasuryList[0],(_usdtamount*97)/100);
-            usdtInterface.transfer(treasuryList[1], (_usdtamount*3)/100);
+            usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
+            usdtInterface.transferFrom(msg.sender,treasuryList[1],(_usdtamount*3)/100);
+            
+            //记录USDT销毁总量
+            destroiedUSDT = destroiedUSDT + _usdtamount;
 
             //社区代币直接销毁
             _NBBburn(_buyer,_NBBamount);
+
+            //记录销毁总量
+            destroiedNBB = destroiedNBB +_NBBamount;
             
         }else{
 
@@ -131,16 +138,22 @@ contract Defi is poor,DAC,NBB{
             isVip[_buyer] = true;
 
             //修改用户对应的债券数量
-            userBDDMount[_buyer] = userBDDMount[_buyer] + amount;
+            userBDDAMount[_buyer] = userBDDAMount[_buyer] + amount;
 
             //将对应债券数量从合约转给用户
             AddressBDDtransfer(_buyer,amount);
             
-            usdtInterface.transfer(treasuryList[0],(_usdtamount*97)/100);
-            usdtInterface.transfer(treasuryList[1], (_usdtamount*3)/100);
+           usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
+            usdtInterface.transferFrom(msg.sender,treasuryList[1],(_usdtamount*3)/100);
+
+            //记录USDT销毁总量
+            destroiedUSDT = destroiedUSDT + _usdtamount;
             
             //社区代币直接销毁
             _NBBburn(_buyer,_NBBamount);
+
+            //记录销毁总量
+            destroiedNBB = destroiedNBB +_NBBamount;
         }
         emit Purchase(_buyer,amount);
         

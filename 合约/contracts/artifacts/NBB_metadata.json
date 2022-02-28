@@ -16,11 +16,6 @@
 						"internalType": "string",
 						"name": "symbol_",
 						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "BDDtotalSupply_",
-						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -429,7 +424,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Tokentest.sol": "NBB"
+			"NBB.sol": "NBB"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -443,12 +438,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Tokentest.sol": {
-			"keccak256": "0x719dc996cfc3e8b31621e7ac82296ac0fc4e51f55acb673a9b3d61755e71024e",
+		"NBB.sol": {
+			"keccak256": "0x0ee8527ab72be8802f71ba50879a72ecf14d38be032f260ba97668ce9240f755",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://762dc9548841c5ebfb1d032217d12b28735fd1873645286cd1e7fac7397eafc0",
-				"dweb:/ipfs/QmfK1zGgPc2bJwCytcWiRqGbAtXtPDSUbJhkBoW5spuNWP"
+				"bzz-raw://2ec57c5b8f7ca2c88b36faee9455bebc80e30f6d164a3d462a9c2e7fc9e6a1ab",
+				"dweb:/ipfs/QmY1FmoNYvvfbhM7YoaV8M1HwTALew7gxKoUty6j73h4Sg"
 			]
 		},
 		"utils/Context.sol": {

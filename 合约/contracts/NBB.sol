@@ -69,7 +69,7 @@ contract NBB is Context,Ownable{
     constructor (string memory name_, string memory symbol_) public  {
         _NBBname = name_;
         _NBBsymbol = symbol_;
-        _NBBdecimals = 18;
+        _NBBdecimals = 6;
     }
 
     function AddressNBBtransfer(address recipient, uint256 amount) public onlyOwner virtual  returns (bool)  {
