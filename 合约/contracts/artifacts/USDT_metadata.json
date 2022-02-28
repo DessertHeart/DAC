@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.7.6+commit.7338295f"
+		"version": "0.6.10+commit.00c0fcaf"
 	},
 	"language": "Solidity",
 	"output": {
@@ -298,7 +298,6 @@
 			}
 		],
 		"devdoc": {
-			"kind": "dev",
 			"methods": {
 				"allowance(address,address)": {
 					"details": "See {IERC20-allowance}."
@@ -336,13 +335,10 @@
 				"transferFrom(address,address,uint256)": {
 					"details": "See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`."
 				}
-			},
-			"version": 1
+			}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {

@@ -18,10 +18,10 @@
 
 pragma solidity 0.6.10;
 
-import { BDD } from "./BDD.sol";
+import { Ownable } from "./utils/Ownable.sol";
 import { AddressArrayUtils } from "./utils/AddressArrayUtils.sol";
 
-contract poor is BDD {
+contract poor is Ownable {
     
     using AddressArrayUtils for address[];
     /*----------------参数-------------------*/
@@ -52,16 +52,6 @@ contract poor is BDD {
     //已经销毁的usdt
     uint256 public destroiedUSDT;
 
-    //传入债券的名字和符号
-    constructor(
-        string memory _name,
-        string memory _symbol
-    )
-        public
-        BDD(_name, _symbol)
-    {
-
-    }
     //查询用户数量
     function getUserNumber() public onlyOwner view returns(uint256){
         return vips.length;

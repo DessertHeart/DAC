@@ -9,12 +9,12 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "_name",
+						"name": "name_",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "_symbol",
+						"name": "symbol_",
 						"type": "string"
 					}
 				],
@@ -136,6 +136,24 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -293,6 +311,7 @@
 			}
 		],
 		"devdoc": {
+			"details": "Implementation of the {IERC20} interface. This implementation is agnostic to the way tokens are created. This means that a supply mechanism has to be added in a derived contract using {_mint}. For a generic mechanism see {ERC20PresetMinterPauser}. TIP: For a detailed writeup see our guide https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How to implement supply mechanisms]. We have followed general OpenZeppelin guidelines: functions revert instead of returning `false` on failure. This behavior is nonetheless conventional and does not conflict with the expectations of ERC20 applications. Additionally, an {Approval} event is emitted on calls to {transferFrom}. This allows applications to reconstruct the allowance for all accounts just by listening to said events. Other implementations of the EIP may not emit these events, as it isn't required by the specification. Finally, the non-standard {decreaseAllowance} and {increaseAllowance} functions have been added to mitigate the well-known issues around setting allowances. See {IERC20-approve}.",
 			"methods": {
 				"allowance(address,address)": {
 					"details": "See {IERC20-allowance}."
@@ -302,6 +321,9 @@
 				},
 				"balanceOf(address)": {
 					"details": "See {IERC20-balanceOf}."
+				},
+				"constructor": {
+					"details": "Sets the values for {name} and {symbol}, initializes {decimals} with a default value of 18. To select a different value for {decimals}, use {_setupDecimals}. All three of these values are immutable: they can only be set once during construction."
 				},
 				"decimals()": {
 					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is called. NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
@@ -335,7 +357,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"NBB.sol": "NBB"
+			"ERC20.sol": "ERC20"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -350,19 +372,11 @@
 	},
 	"sources": {
 		"ERC20.sol": {
-			"keccak256": "0xb5455f738d641ca351e18120fee8e5d0bd95ae3b6a90435671d073b48eefecc7",
+			"keccak256": "0xbfc99f7db7abd3980620be668f59b41763cc3fe386a9140130159d1d95b32aa4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://361107fe7f490013f22cb36dd58ca369fe0900a43f8d39b234ec6ceb912100c9",
-				"dweb:/ipfs/QmdgPKgahiePXeiArsCpnD5XSqdSVg6wGVFzKjEGPZFTyz"
-			]
-		},
-		"NBB.sol": {
-			"keccak256": "0xb468758aeb7f03c828f8e63528b310c1aef45f6aeb8cfbf1eff6116b36f3f35a",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://d24b6548a8931fbec221545eaae67bc22d94c63e32439678f1bff8b4a2e944ea",
-				"dweb:/ipfs/QmYd5X6biRXABaZmFns8eK7bXJEj9xmz5uTMiXnEQicHfv"
+				"bzz-raw://a9f9774a32229223dc2fe1559ed7e59588aaedc5ba0e830a4cd31410e48fcc04",
+				"dweb:/ipfs/QmVeiuuzxKaNXqtXfQ2FEPVHRBNLH5MSXQZfdeFHmvyBox"
 			]
 		},
 		"utils/Context.sol": {
@@ -374,11 +388,11 @@
 			]
 		},
 		"utils/IERC20.sol": {
-			"keccak256": "0x1cf8c1e1a8a8f60671d426bcedba75f5f0509dc74789e2d2475791c0596c33d1",
+			"keccak256": "0x1208a842911602b4f04929b6fca611cc23653a7342a823199ac66e855d58f50d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://687bcf000696228ec0ab4f0a4a694c5d66386a03e3accb981882e44c267ecc2a",
-				"dweb:/ipfs/QmbbfbCnBKTiqC1avw89kfA3wx8nmJWAWL7AAdu2p8DrHp"
+				"bzz-raw://424a57a5f7d7d84eb28415e3200cbeac9096646cdcdbea4a55c31fa9614b467e",
+				"dweb:/ipfs/QmPyVmEzdpHYD1ArAB86hPZz1peydgLMkpV89zJ53BHwCD"
 			]
 		},
 		"utils/SafeMath.sol": {
