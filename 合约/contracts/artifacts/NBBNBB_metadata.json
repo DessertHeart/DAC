@@ -139,6 +139,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "decimals",
 				"outputs": [
@@ -335,7 +353,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"NBB.sol": "NBB"
+			"NBB.sol": "NBBNBB"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -350,19 +368,19 @@
 	},
 	"sources": {
 		"ERC20.sol": {
-			"keccak256": "0xb5455f738d641ca351e18120fee8e5d0bd95ae3b6a90435671d073b48eefecc7",
+			"keccak256": "0xbfc99f7db7abd3980620be668f59b41763cc3fe386a9140130159d1d95b32aa4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://361107fe7f490013f22cb36dd58ca369fe0900a43f8d39b234ec6ceb912100c9",
-				"dweb:/ipfs/QmdgPKgahiePXeiArsCpnD5XSqdSVg6wGVFzKjEGPZFTyz"
+				"bzz-raw://a9f9774a32229223dc2fe1559ed7e59588aaedc5ba0e830a4cd31410e48fcc04",
+				"dweb:/ipfs/QmVeiuuzxKaNXqtXfQ2FEPVHRBNLH5MSXQZfdeFHmvyBox"
 			]
 		},
 		"NBB.sol": {
-			"keccak256": "0xb468758aeb7f03c828f8e63528b310c1aef45f6aeb8cfbf1eff6116b36f3f35a",
+			"keccak256": "0x42e7da8214f48b117856eb340da3378cf9f582cae409d7a326224757109ba1a2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d24b6548a8931fbec221545eaae67bc22d94c63e32439678f1bff8b4a2e944ea",
-				"dweb:/ipfs/QmYd5X6biRXABaZmFns8eK7bXJEj9xmz5uTMiXnEQicHfv"
+				"bzz-raw://051360b58d1024602084af42f974319edc5fbbcee62bc8f25d28ff31eef2dd2f",
+				"dweb:/ipfs/QmNmynWYgLusTKbqYCsaAVFDqa2TN2xEC1hMHREZkETN93"
 			]
 		},
 		"utils/Context.sol": {
@@ -374,11 +392,11 @@
 			]
 		},
 		"utils/IERC20.sol": {
-			"keccak256": "0x1cf8c1e1a8a8f60671d426bcedba75f5f0509dc74789e2d2475791c0596c33d1",
+			"keccak256": "0x1208a842911602b4f04929b6fca611cc23653a7342a823199ac66e855d58f50d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://687bcf000696228ec0ab4f0a4a694c5d66386a03e3accb981882e44c267ecc2a",
-				"dweb:/ipfs/QmbbfbCnBKTiqC1avw89kfA3wx8nmJWAWL7AAdu2p8DrHp"
+				"bzz-raw://424a57a5f7d7d84eb28415e3200cbeac9096646cdcdbea4a55c31fa9614b467e",
+				"dweb:/ipfs/QmPyVmEzdpHYD1ArAB86hPZz1peydgLMkpV89zJ53BHwCD"
 			]
 		},
 		"utils/SafeMath.sol": {

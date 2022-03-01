@@ -9,12 +9,12 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "name_",
+						"name": "_name",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "symbol_",
+						"name": "_symbol",
 						"type": "string"
 					}
 				],
@@ -43,7 +43,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "DACApproval",
+				"name": "Approval",
 				"type": "event"
 			},
 			{
@@ -68,26 +68,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "DACTransfer",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "previousOwner",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "newOwner",
-						"type": "address"
-					}
-				],
-				"name": "OwnershipTransferred",
+				"name": "Transfer",
 				"type": "event"
 			},
 			{
@@ -103,7 +84,7 @@
 						"type": "address"
 					}
 				],
-				"name": "DACallowance",
+				"name": "allowance",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -127,7 +108,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "DACapprove",
+				"name": "approve",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -146,7 +127,7 @@
 						"type": "address"
 					}
 				],
-				"name": "DACbalanceOf",
+				"name": "balanceOf",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -158,8 +139,26 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
-				"name": "DACdecimals",
+				"name": "decimals",
 				"outputs": [
 					{
 						"internalType": "uint8",
@@ -183,7 +182,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "DACdecreaseAllowance",
+				"name": "decreaseAllowance",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -207,7 +206,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "DACincreaseAllowance",
+				"name": "increaseAllowance",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -220,7 +219,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "DACname",
+				"name": "name",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -233,7 +232,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "DACsymbol",
+				"name": "symbol",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -246,7 +245,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "DACtotalSupply",
+				"name": "totalSupply",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -270,7 +269,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "DACtransfer",
+				"name": "transfer",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -299,7 +298,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "DACtransferFrom",
+				"name": "transferFrom",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -309,88 +308,42 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "owner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "renounceOwnership",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "newOwner",
-						"type": "address"
-					}
-				],
-				"name": "transferOwnership",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
-			"details": "Implementation of the {IERC20} interface. This implementation is agnostic to the way tokens are created. This means that a supply mechanism has to be added in a derived contract using {_mint}. For a generic mechanism see {ERC20PresetMinterPauser}. TIP: For a detailed writeup see our guide https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How to implement supply mechanisms]. We have followed general OpenZeppelin guidelines: functions revert instead of returning `false` on failure. This behavior is nonetheless conventional and does not conflict with the expectations of ERC20 applications. Additionally, an {Approval} event is emitted on calls to {transferFrom}. This allows applications to reconstruct the allowance for all accounts just by listening to said events. Other implementations of the EIP may not emit these events, as it isn't required by the specification. Finally, the non-standard {decreaseAllowance} and {increaseAllowance} functions have been added to mitigate the well-known issues around setting allowances. See {IERC20-approve}.",
 			"methods": {
-				"DACallowance(address,address)": {
+				"allowance(address,address)": {
 					"details": "See {IERC20-allowance}."
 				},
-				"DACapprove(address,uint256)": {
+				"approve(address,uint256)": {
 					"details": "See {IERC20-approve}. Requirements: - `spender` cannot be the zero address."
 				},
-				"DACbalanceOf(address)": {
+				"balanceOf(address)": {
 					"details": "See {IERC20-balanceOf}."
 				},
-				"DACdecimals()": {
+				"decimals()": {
 					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is called. NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
 				},
-				"DACdecreaseAllowance(address,uint256)": {
+				"decreaseAllowance(address,uint256)": {
 					"details": "Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
 				},
-				"DACincreaseAllowance(address,uint256)": {
+				"increaseAllowance(address,uint256)": {
 					"details": "Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address."
 				},
-				"DACname()": {
+				"name()": {
 					"details": "Returns the name of the token."
 				},
-				"DACsymbol()": {
+				"symbol()": {
 					"details": "Returns the symbol of the token, usually a shorter version of the name."
 				},
-				"DACtotalSupply()": {
+				"totalSupply()": {
 					"details": "See {IERC20-totalSupply}."
 				},
-				"DACtransfer(address,uint256)": {
+				"transfer(address,uint256)": {
 					"details": "See {IERC20-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`."
 				},
-				"DACtransferFrom(address,address,uint256)": {
+				"transferFrom(address,address,uint256)": {
 					"details": "See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`."
-				},
-				"constructor": {
-					"details": "Sets the values for {name} and {symbol}, initializes {decimals} with a default value of 18. To select a different value for {decimals}, use {_setupDecimals}. All three of these values are immutable: they can only be set once during construction."
-				},
-				"owner()": {
-					"details": "Returns the address of the current owner."
-				},
-				"renounceOwnership()": {
-					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
-				},
-				"transferOwnership(address)": {
-					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				}
 			}
 		},
@@ -415,11 +368,19 @@
 	},
 	"sources": {
 		"DAC.sol": {
-			"keccak256": "0xeee50cec44a413495b976eec9b94ce7ac236c6028878c50665bea1afec737db9",
+			"keccak256": "0x4f7ad813a3df0ff58eaf49d51402d3fd5c4e322f748770af7a4a2b00cc563bfb",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://964a181446228cf648af7826aaefda227ad533a16ccfee94d78cb32ccfd3e478",
-				"dweb:/ipfs/Qmdp3fHm9SRQ3bXErV8aaynf8EbQqR3e4LfEmGgVq26oNd"
+				"bzz-raw://c6bef91b3d5199afa0f640b204c1c33d43a7b7c70d258acf775f9c1741de68c7",
+				"dweb:/ipfs/QmbWYUuQsQ3fSjmeWswAjJcFV9BvsoXAeYu9m7k5MSk7cJ"
+			]
+		},
+		"ERC20.sol": {
+			"keccak256": "0xbfc99f7db7abd3980620be668f59b41763cc3fe386a9140130159d1d95b32aa4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a9f9774a32229223dc2fe1559ed7e59588aaedc5ba0e830a4cd31410e48fcc04",
+				"dweb:/ipfs/QmVeiuuzxKaNXqtXfQ2FEPVHRBNLH5MSXQZfdeFHmvyBox"
 			]
 		},
 		"utils/Context.sol": {
@@ -430,12 +391,12 @@
 				"dweb:/ipfs/QmNwZDsCn4Af9Uyw3syohXAAoe9pAwCuvCm6FZXG3Hv5ka"
 			]
 		},
-		"utils/Ownable.sol": {
-			"keccak256": "0x977bb0fc62a55630e877f7e976dbc4ea1116da1b5f0f285ba7cd27ac2f0e5b20",
-			"license": "Apache License",
+		"utils/IERC20.sol": {
+			"keccak256": "0x1208a842911602b4f04929b6fca611cc23653a7342a823199ac66e855d58f50d",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://03e2b49e1ae99804dace52d83400162fa015616817bfdb301d37524187e45e2c",
-				"dweb:/ipfs/QmdiEvarfRcJk7qdR2BhvCzhPvjjF19qu7gvtteLpd6v8v"
+				"bzz-raw://424a57a5f7d7d84eb28415e3200cbeac9096646cdcdbea4a55c31fa9614b467e",
+				"dweb:/ipfs/QmPyVmEzdpHYD1ArAB86hPZz1peydgLMkpV89zJ53BHwCD"
 			]
 		},
 		"utils/SafeMath.sol": {

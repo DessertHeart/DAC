@@ -123,6 +123,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "totalSupply",
 				"outputs": [
@@ -233,11 +251,11 @@
 	},
 	"sources": {
 		"utils/IERC20.sol": {
-			"keccak256": "0x1cf8c1e1a8a8f60671d426bcedba75f5f0509dc74789e2d2475791c0596c33d1",
+			"keccak256": "0x1208a842911602b4f04929b6fca611cc23653a7342a823199ac66e855d58f50d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://687bcf000696228ec0ab4f0a4a694c5d66386a03e3accb981882e44c267ecc2a",
-				"dweb:/ipfs/QmbbfbCnBKTiqC1avw89kfA3wx8nmJWAWL7AAdu2p8DrHp"
+				"bzz-raw://424a57a5f7d7d84eb28415e3200cbeac9096646cdcdbea4a55c31fa9614b467e",
+				"dweb:/ipfs/QmPyVmEzdpHYD1ArAB86hPZz1peydgLMkpV89zJ53BHwCD"
 			]
 		}
 	},

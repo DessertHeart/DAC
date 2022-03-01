@@ -335,7 +335,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"NBB.sol": "NBB"
+			"NBB.sol": "N"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -358,11 +358,11 @@
 			]
 		},
 		"NBB.sol": {
-			"keccak256": "0xb468758aeb7f03c828f8e63528b310c1aef45f6aeb8cfbf1eff6116b36f3f35a",
+			"keccak256": "0x22c5ee2f68086970e9803128ba3f047d3fd70981cfed45f4e732811aa5a48045",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d24b6548a8931fbec221545eaae67bc22d94c63e32439678f1bff8b4a2e944ea",
-				"dweb:/ipfs/QmYd5X6biRXABaZmFns8eK7bXJEj9xmz5uTMiXnEQicHfv"
+				"bzz-raw://cd59dfbe159871cce862efa1e292405a10182db33df700f7ff277148260d38f7",
+				"dweb:/ipfs/QmabZbJFnadatvVYSDoBRXZGGym2Jrv39fZcFmeMVmpEQb"
 			]
 		},
 		"utils/Context.sol": {

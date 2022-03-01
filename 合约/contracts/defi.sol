@@ -21,24 +21,27 @@ import "./utils/Context.sol";
 import "./utils/SafeMath.sol";
 
 import { poor } from "./pool.sol";
-import { DAC } from "./DAC.sol";
-import { NBB } from "./NBB.sol";
 
+import { IERC20 } from "./utils/IERC20.sol";
 import { IBEP20 } from "./IBEP20.sol";
 
-contract Defi is poor,DAC,NBB{
+contract Defi is poor{
     
     /*----------------参数-------------------*/
 
     //每日奖励的数量
     uint256 public dayRewardAmount = 2660;
 
+    address BDD;
+    address DAC;
+    address NBB;
+
+    IERC20 BDDInterface = IERC20(BDD);
+    IERC20 DACInterface = IERC20(DAC);
+    IERC20 NBBInterface = IERC20(NBB);
 
     //币安主链的usdt合约地址
     address usdt = 0x55d398326f99059fF775485246999027B3197955;
-     
-    
-
     //USDT稳定币合约导入
     IBEP20 usdtInterface = IBEP20(usdt);
     
@@ -50,29 +53,7 @@ contract Defi is poor,DAC,NBB{
     //提现后触发
     event WithDraw(address indexed _withDrawer, uint256 indexed amount);
     
-    //债券名字、符号、总发行量    奖励代币的名字、符号、总发行量
-    constructor(
-        string memory BDDname_,
-        string memory BDDsymbol_,
-        uint256  BDDtotalMint,
-        string memory DACname_,
-        string memory DACsymbol_,
-        uint256 DACtotalMint,
-        string memory NBBname_,
-        string memory NBBsymbol_,
-        uint256 NBBtotalMint
-    )
-        public
-        poor(BDDname_, BDDsymbol_)
-        DAC(DACname_,DACsymbol_)
-        NBB(NBBname_,NBBsymbol_)
-        
-    {
-        //将初始的债券、奖励代币、社区代币直接存到合约中
-        _BDDmint(address(this),BDDtotalMint);
-        _DACmint(address(this),DACtotalMint);
-        _NBBmint(address(this),NBBtotalMint);
-    }
+   
     
 
     //每日分红一次
@@ -112,8 +93,8 @@ contract Defi is poor,DAC,NBB{
             //修改用户对应的债券数量
             userBDDAMount[_buyer] + amount;
 
-            //将对应债券数量从合约转给用户
-            AddressBDDtransfer(_buyer,amount);
+            //将对应债券数量从合约转给用户 在债券合约部署以后需要将代币的权益授权给合约
+            BDDInterface.transferFrom(address(this),_buyer,amount);
            
             //按比例把usdt分别转账给三个金库地址和流动池----等待完成，如何使用小数-----<<<<<<等待搞定
             //97%三个地址分443   3%进入流动性矿池
@@ -124,7 +105,7 @@ contract Defi is poor,DAC,NBB{
             destroiedUSDT = destroiedUSDT + _usdtamount;
 
             //社区代币直接销毁
-            _NBBburn(_buyer,_NBBamount);
+            NBBInterface.burn(_buyer,_NBBamount);
 
             //记录销毁总量
             destroiedNBB = destroiedNBB +_NBBamount;
@@ -140,17 +121,18 @@ contract Defi is poor,DAC,NBB{
             //修改用户对应的债券数量
             userBDDAMount[_buyer] = userBDDAMount[_buyer] + amount;
 
-            //将对应债券数量从合约转给用户
-            AddressBDDtransfer(_buyer,amount);
+            //将对应债券数量从合约转给用户 在债券合约部署以后需要将代币的权益授权给合约
+            BDDInterface.transferFrom(address(this),_buyer,amount);
+           
             
-           usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
+            usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
             usdtInterface.transferFrom(msg.sender,treasuryList[1],(_usdtamount*3)/100);
 
             //记录USDT销毁总量
             destroiedUSDT = destroiedUSDT + _usdtamount;
             
             //社区代币直接销毁
-            _NBBburn(_buyer,_NBBamount);
+            NBBInterface.burn(_buyer,_NBBamount);
 
             //记录销毁总量
             destroiedNBB = destroiedNBB +_NBBamount;
@@ -171,13 +153,13 @@ contract Defi is poor,DAC,NBB{
         //扣除通缩-------<<<小数还没实现
         if(needDeflation()==true){
             defla = (_amount*2)/100;
-            _DACburn(address(this),defla);
+            DACInterface.burn(address(this),defla);
         }
 
         uint256 Fee = (_amount*10)/100;
         uint amount = _amount - defla - Fee;
-        //将DAC从合约转给用户
-        AddressDACtransfer(withDrawer,amount);
+        //将DAC从合约转给用户  在奖励代币合约部署以后需要将代币的权益授权给合约
+        DACInterface.transferFrom(address(this),withDrawer,amount);
 
         //触发事件
         emit WithDraw(withDrawer,_amount);
@@ -186,7 +168,7 @@ contract Defi is poor,DAC,NBB{
 
     //判断是否还要通缩
     function needDeflation() public view returns(bool){
-        if(DACtotalSupply()<=598000){
+        if(DACInterface.totalSupply()<=598000){
             return false;
         }
         return true;
