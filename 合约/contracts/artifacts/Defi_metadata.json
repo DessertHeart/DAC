@@ -417,11 +417,11 @@
 			]
 		},
 		"defi.sol": {
-			"keccak256": "0x2c26056b6d3ba5060c42139c551eddb7061464cec213ce753c3c10973a3f1f8d",
+			"keccak256": "0x1c516a9532008e292f8cd3817c77819a9d210572a1610e122036fb6514bbaaf5",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://24c870fe79dedbc86b44010d653b2835e0b81d9c4a8581110977961ecca73b56",
-				"dweb:/ipfs/QmdWChaJthrP4RPH9NNJPcn4br9QehopuZVx9Jwyw8Yu7E"
+				"bzz-raw://d2058e283434199c4887563d63b4268b5b097da1a3f50a5beb66ad3a5145c42c",
+				"dweb:/ipfs/Qmd7GVAJFGuNMpczsJovnkPkJtUgxKtrSox3oG1uWZyVrz"
 			]
 		},
 		"pool.sol": {
@@ -462,14 +462,6 @@
 			"urls": [
 				"bzz-raw://03e2b49e1ae99804dace52d83400162fa015616817bfdb301d37524187e45e2c",
 				"dweb:/ipfs/QmdiEvarfRcJk7qdR2BhvCzhPvjjF19qu7gvtteLpd6v8v"
-			]
-		},
-		"utils/SafeMath.sol": {
-			"keccak256": "0x36ef886f2db3f3ae3cc82cf1ed8cd244a24b9405fbd9f7dab8ed4335b7cfa085",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://310d80d297ae911662cf527253d1d387716739b30d80e2873f8def3397c58530",
-				"dweb:/ipfs/QmP9oBuWyBvot5QhCih6zxLrUBkLGNNt7xELJqqnFiPzAV"
 			]
 		}
 	},

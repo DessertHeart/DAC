@@ -17,13 +17,9 @@
 */
 
 pragma solidity 0.6.10;
-import "./utils/Context.sol";
-import "./utils/SafeMath.sol";
 
 import { poor } from "./pool.sol";
-
 import { IERC20 } from "./utils/IERC20.sol";
-import { IBEP20 } from "./IBEP20.sol";
 
 contract Defi is poor{
     
@@ -32,18 +28,15 @@ contract Defi is poor{
     //每日奖励的数量
     uint256 public dayRewardAmount = 2660;
 
-    address BDD;
-    address DAC;
-    address NBB;
+    address BDD = 0xeb8e1A39FC308da4D50D4bf5633Ec42B7e1dD41d;
+    address DAC = 0x696Db825D84656F07FC33be21eE5a586b3b286cA;
+    address NBB = 0x5300A338D637376806d1d5C1dEf07614FCfC1645;
 
     IERC20 BDDInterface = IERC20(BDD);
     IERC20 DACInterface = IERC20(DAC);
     IERC20 NBBInterface = IERC20(NBB);
 
-    //币安主链的usdt合约地址
-    address usdt = 0x55d398326f99059fF775485246999027B3197955;
-    //USDT稳定币合约导入
-    IBEP20 usdtInterface = IBEP20(usdt);
+    
     
     /*--------------------事件--------------------*/
 
@@ -79,9 +72,12 @@ contract Defi is poor{
     }
 
 
+
     //买入方法    转入usdt 和 社区代币  --将usdt进行转账 --社区代币销毁
+    //钱包先approve 再然后通过合约获取金库地址  分别给金库转账 再burn社区代币  转账成功以后执行下面的方法
     function purchase(address _buyer,uint256 _usdtamount,uint256 _NBBamount) public {
         
+
         //之前已经买过的话那已经有了数据 直接修改对的拥有量
         uint256 amount = _usdtamount + _NBBamount ;
         
@@ -93,19 +89,21 @@ contract Defi is poor{
             //修改用户对应的债券数量
             userBDDAMount[_buyer] + amount;
 
-            //将对应债券数量从合约转给用户 在债券合约部署以后需要将代币的权益授权给合约
-            BDDInterface.transferFrom(address(this),_buyer,amount);
+            //将对应债券数量从合约转给用户 在债券合约部署以后需要将代币的转给合约
+            BDDInterface.transfer(_buyer,amount);
            
             //按比例把usdt分别转账给三个金库地址和流动池----等待完成，如何使用小数-----<<<<<<等待搞定
             //97%三个地址分443   3%进入流动性矿池
-            usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
-            usdtInterface.transferFrom(msg.sender,treasuryList[1],(_usdtamount*3)/100);
+            
+            
+            //usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
+            //usdtInterface.transferFrom(msg.sender,treasuryList[1],(_usdtamount*3)/100);
             
             //记录USDT销毁总量
             destroiedUSDT = destroiedUSDT + _usdtamount;
 
             //社区代币直接销毁
-            NBBInterface.burn(_buyer,_NBBamount);
+            //NBBInterface.burn(_buyer,_NBBamount);
 
             //记录销毁总量
             destroiedNBB = destroiedNBB +_NBBamount;
@@ -121,18 +119,19 @@ contract Defi is poor{
             //修改用户对应的债券数量
             userBDDAMount[_buyer] = userBDDAMount[_buyer] + amount;
 
-            //将对应债券数量从合约转给用户 在债券合约部署以后需要将代币的权益授权给合约
-            BDDInterface.transferFrom(address(this),_buyer,amount);
+            //将对应债券数量从合约转给用户 在债券合约部署以后需要将代币的转给合约
+            BDDInterface.transfer(_buyer,amount);
+           
            
             
-            usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
-            usdtInterface.transferFrom(msg.sender,treasuryList[1],(_usdtamount*3)/100);
+            //usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
+            //usdtInterface.transferFrom(msg.sender,treasuryList[1],(_usdtamount*3)/100);
 
             //记录USDT销毁总量
             destroiedUSDT = destroiedUSDT + _usdtamount;
             
             //社区代币直接销毁
-            NBBInterface.burn(_buyer,_NBBamount);
+            //NBBInterface.burn(_buyer,_NBBamount);
 
             //记录销毁总量
             destroiedNBB = destroiedNBB +_NBBamount;
@@ -159,7 +158,7 @@ contract Defi is poor{
         uint256 Fee = (_amount*10)/100;
         uint amount = _amount - defla - Fee;
         //将DAC从合约转给用户  在奖励代币合约部署以后需要将代币的权益授权给合约
-        DACInterface.transferFrom(address(this),withDrawer,amount);
+        DACInterface.transfer(withDrawer,amount);
 
         //触发事件
         emit WithDraw(withDrawer,_amount);
