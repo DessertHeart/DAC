@@ -37,7 +37,7 @@ export default {
         {iconSrc:require('./icons/swap_icon.png'),text:'Swap',path:'https://pancakeswap.finance/',isOuter:true},
         {iconSrc:require('./icons/markets_icon.png'),text:'Markets'},
         {iconSrc:require('./icons/chain_icon.png'),text:'Chain'},
-        {iconSrc:require('./icons/dao_icon.png'),text:'Dao'},
+        {iconSrc:require('./icons/dao_icon.png'),text:'Dao',path:'/dao',isOuter:false},
         {iconSrc:require('./icons/community_icon.png'),text:'Community'},
         {iconSrc:require('./icons/auditReport_icon.png'),text:'Audit Report'},
         {iconSrc:require('./icons/node_icon.png'),text:'Node'},

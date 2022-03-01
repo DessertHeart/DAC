@@ -5,11 +5,11 @@
     </div>
     <div class="mid">
       <div class="mid-left">
-        <span class="rt-text">Information</span>
+        <span class="rt-text" @click="goto('/dao')">Information</span>
         <div class="center-content">
           <span class="text1">Mining(DAC)</span>
           <span class="text2">0.0000000</span>
-          <button class="info_btn">Withdraw</button>
+          <button @click="isShowWithdraw = true" class="info_btn">Withdraw</button>
         </div>
       </div>
       <div class="mid-right">
@@ -32,7 +32,7 @@
         <span>
           75%USDT+25%BNN
         </span>
-        <button @click="isShowPop = true">Exchange</button>
+        <button @click="isShowExchange = true">Exchange</button>
       </div>
       <div class="center">
         <div class="header">
@@ -61,27 +61,40 @@
         <div>1121221212122255</div>
       </div>
     </div>
-    <PopWin :isShow.sync='isShowPop'></PopWin>
+    <PopExchange :isShow.sync='isShowExchange'></PopExchange>
+    <PopWithdraw :isShow.sync='isShowWithdraw'></PopWithdraw>
+    <PopMask :isShow.sync='isShowExchange'></PopMask>
+    <PopMask :isShow.sync='isShowWithdraw'></PopMask>
   </div>
 </template>
 
 <script>
-import PopWin from './childCpns/popWin/PopWin.vue'
+import PopExchange from './childCpns/popExchange/PopExchange.vue'
+import PopWithdraw from './childCpns/popWithdraw/PopWithdraw.vue'
+import PopMask from '@/components/popMask/PopMask.vue'
 
 export default {
   name: "WpProjectIndex",
   components:{
-    PopWin
+    PopExchange,PopMask,PopWithdraw
   },
   data() {
     return {
-      isShowPop:false,//弹窗开关
+      //弹窗开关
+      isShowExchange:false,
+      isShowWithdraw:false
     };
   },
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    goto(path){
+      this.$router.push({
+        path
+      })
+    }
+  },
 };
 </script>
 

@@ -46,3 +46,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.mt16{
+  margin-top: 16px;
+}

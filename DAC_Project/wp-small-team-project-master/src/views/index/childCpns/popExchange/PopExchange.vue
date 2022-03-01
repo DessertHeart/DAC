@@ -1,9 +1,9 @@
 <template>
-<div class="popwin">
-  <div v-show="isShowPop" class="popwin-container">    
+<div v-show="isShow" class="popwin">
+  <div class="popwin-container">    
     <div class="title">
       <span>75%USDT+25%BNN</span>
-      <img @click="closePop" src="./imgs/close.png" alt="">
+      <img @click="closePop" src="../imgs/close.png" alt="">
     </div>
     <div class="header">
       <div class="text">
@@ -21,7 +21,7 @@
     </div>
     <div class="input-container1"> 
       <input type="text">
-      <img src="./imgs/plus.png" alt="">
+      <img src="../imgs/plus.png" alt="">
       <input type="text">
     </div>
     <div class="input-container2">
@@ -41,7 +41,6 @@
     </div>
     
   </div>
-  <div class="popwin-mask" @click="closePop" v-show="isShowPop"></div>
 </div>
   
 </template>
@@ -54,13 +53,7 @@ export default {
   },
   data() {
     return {
-      isShowPop:false,
     };
-  },
-  watch:{
-    isShow:function(){
-      this.isShowPop = this.isShow
-    }
   },
 
   mounted() {
@@ -69,7 +62,6 @@ export default {
 
   methods: {
     closePop(){
-      this.isShowPop = false
       this.$emit('update:isShow',false)
     }
   },
@@ -83,8 +75,9 @@ export default {
     height: 640px;
     background-color: #fff;
     position: fixed;
-    left: 510px;
-    top: 80px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
     z-index: 101;    
     border-radius: 20px;
     .title{
@@ -94,6 +87,9 @@ export default {
       padding: 30px 20px 0 20px;
       display: flex;
       justify-content: space-between;
+      img:hover{
+        cursor: pointer;
+      }
     }
     .header{
       display: flex;
@@ -176,16 +172,6 @@ export default {
       }
     }
     
-  }
-  .popwin-mask{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: #000;
-    opacity: 0.5;
-    z-index: 100;
   }
 }
   
