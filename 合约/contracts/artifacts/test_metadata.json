@@ -6,6 +6,24 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "ad",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "BURN",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "balance1",
 				"outputs": [
@@ -49,25 +67,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "trans",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -94,11 +93,11 @@
 	},
 	"sources": {
 		"test.sol": {
-			"keccak256": "0x6f6be84a222fc6fbbe3fd46c65eea5ae438d9fba7d25a0b254b1ba89c99b19a1",
+			"keccak256": "0x5be7b12359af7bf50bfc0de4db01cf2660f1afaf71dd9df593ba867e7ab4c64a",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://0d87c9e1648727a3982480ff8b0d7f825b034de133122665403cde3a918fd516",
-				"dweb:/ipfs/QmaFEEkK98XJKggWAzbZK2mtpZwtCW8ERB52zNytPWQ69x"
+				"bzz-raw://2c99c371e3953f3b77e33f86df8be0271d9d8de57022a80ad5347bb0bf8acae9",
+				"dweb:/ipfs/QmfNQKCbNJim9UdawdkguXpcj2BN5BnjAPkmooWhG2BCGZ"
 			]
 		},
 		"utils/IERC20.sol": {
