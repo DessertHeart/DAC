@@ -408,20 +408,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"IBEP20.sol": {
-			"keccak256": "0x53a15f94fe5cd784a8a3cdebd8eb4eecd0e5943dc3e0efd8287b5ef26482ebaf",
-			"license": "Apache License",
-			"urls": [
-				"bzz-raw://0bda0a9760d95b90b0b4e0286b428d857e4bf37369c4a558c64317a2369dde06",
-				"dweb:/ipfs/QmSzmrp7fDuTMYn5KmgHtQujcourkE5WNbcVcPbh4PNVqd"
-			]
-		},
 		"defi.sol": {
-			"keccak256": "0x1c516a9532008e292f8cd3817c77819a9d210572a1610e122036fb6514bbaaf5",
+			"keccak256": "0x0e22e31edc37d4487d6c68ef4a9db92f0754da4ee1c278e002bdf51b2d967c35",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://d2058e283434199c4887563d63b4268b5b097da1a3f50a5beb66ad3a5145c42c",
-				"dweb:/ipfs/Qmd7GVAJFGuNMpczsJovnkPkJtUgxKtrSox3oG1uWZyVrz"
+				"bzz-raw://8f34a5774a5e0d5aa1bd42a21125af53820f2ab6d6557d00c81968a7aa9e1deb",
+				"dweb:/ipfs/QmQf6E555zxHeZbkqgL2pWqvvXSiVoQkmmQahCQsHz4aJC"
 			]
 		},
 		"pool.sol": {

@@ -9,6 +9,7 @@
 import NavTop from '@/components/navTop/NavTop.vue'
 
 export default {
+  
   components:{
     NavTop
   }

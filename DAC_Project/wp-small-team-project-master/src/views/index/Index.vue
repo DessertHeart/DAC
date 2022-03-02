@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 <template>
   <div class="index-container">
     <div class="search">
@@ -66,14 +67,16 @@
     <PopMask :isShow.sync='isShowExchange'></PopMask>
     <PopMask :isShow.sync='isShowWithdraw'></PopMask>
   </div>
+  
 </template>
 
 <script>
 import PopExchange from './childCpns/popExchange/PopExchange.vue'
 import PopWithdraw from './childCpns/popWithdraw/PopWithdraw.vue'
 import PopMask from '@/components/popMask/PopMask.vue'
-
+// eslint-disable-next-line
 export default {
+  
   name: "WpProjectIndex",
   components:{
     PopExchange,PopMask,PopWithdraw
@@ -86,7 +89,57 @@ export default {
     };
   },
 
-  mounted() {},
+  async mounted() {
+    //判断页面是否安装Metamask
+    if (typeof window.ethereum !== 'undefined') {
+      const ethereum = window.ethereum
+      //禁止自动刷新，metamask要求写的
+      ethereum.autoRefreshOnNetworkChange = false
+
+        //第一次链接Metamask
+        const accounts = await ethereum.enable()
+        console.log(accounts)
+        //初始化Provider
+        const provider = window['ethereum']
+        console.log(provider)
+        //获取网络ID
+        console.log(provider.chainId)
+        //实例化Web3
+        window.defaultAccount = accounts[0].toLowerCase()
+      //   const web3 = new Web3(provider)
+      //   console.log(web3)
+      //   web3.eth.getBalance(window.defaultAccount, (err, wei) => {
+
+      //     // 余额单位从wei转换为ether
+      //     const balance = web3.utils.fromWei(wei, 'ether')
+      //     console.log("balance: " + balance)
+      // })
+        //   // 余额单位从wei转换为ether
+        //   const balance = web3.utils.fromWei(wei, 'ether')
+        //   console.log("balance: " + balance)
+      
+        //导入abi文件
+        //const abi = require("./contract.abi.json")
+        //定义合约地址
+        //const address = "0xAC75865f5e06C9A792abF603B016546e384113cB"
+        //实例化合约
+        //window.myContract = new web3.eth.Contract(abi.abi,address)
+        console.log(window.myContract)
+        
+        console.log(window.defaultAccount)
+
+        ethereum.on('accountsChanged', function (accounts) {
+          console.log("accountsChanged:" + accounts)
+        })
+        ethereum.on('networkChanged', function (networkVersion) {
+          console.log("networkChanged:" + networkVersion)
+        })
+      
+    } else {
+      console.log('没有metamask')
+    }
+    
+  },
 
   methods: {
     goto(path){
