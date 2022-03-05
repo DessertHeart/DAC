@@ -341,15 +341,15 @@ contract Defi is poor,Distribution{
        //推广量
        //等级
         require(isDistribuMember[_ad]==true,"you are not distribute menber");
-        if(userBDDAMount[_ad] >= 100 || userBDDAMount[_ad] < 500){
+        if((userBDDAMount[_ad] >= 100 || userBDDAMount[_ad] < 500)&&(userDistributeSon[_ad]>=1||userDistributeSon[_ad]<3)){
             userDistributeGrade[_ad] = 1;
-        }else if(userBDDAMount[_ad] >= 500 || userBDDAMount[_ad] < 1000){
+        }else if((userBDDAMount[_ad] >= 500 || userBDDAMount[_ad] < 1000)&&(userDistributeSon[_ad]>=3||userDistributeSon[_ad]<5)){
             userDistributeGrade[_ad] = 2;
-        }else if(userBDDAMount[_ad] >= 1000 || userBDDAMount[_ad] < 2000){
+        }else if((userBDDAMount[_ad] >= 1000 || userBDDAMount[_ad] < 2000)&&(userDistributeSon[_ad]>=5||userDistributeSon[_ad]<8)){
             userDistributeGrade[_ad] = 3;
-        }else if(userBDDAMount[_ad] >= 2000 || userBDDAMount[_ad] < 5000){
+        }else if((userBDDAMount[_ad] >= 2000 || userBDDAMount[_ad] < 5000)&&(userDistributeSon[_ad]>=8||userDistributeSon[_ad]<10)){
             userDistributeGrade[_ad] = 4;
-        }else if(userBDDAMount[_ad] >= 5000 || userBDDAMount[_ad] < 10000){
+        }else if((userBDDAMount[_ad] >= 5000 || userBDDAMount[_ad] < 10000)&&(userDistributeSon[_ad]>=10||userDistributeSon[_ad]<15)){
             userDistributeGrade[_ad] = 5;
         }else{
             userDistributeGrade[_ad] = 6;
