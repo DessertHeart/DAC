@@ -34,6 +34,8 @@ contract Distribution {
     //记录这个用户有效的推广数量
     mapping(address => uint256) public userDistributeSon;
 
+    mapping(address=>mapping(address=>bool)) public isMyFar;
+
     //记录总的分销奖励
     uint256 public totalDistributeReward;
 

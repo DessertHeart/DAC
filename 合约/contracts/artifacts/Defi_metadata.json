@@ -273,6 +273,30 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "isMyFar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"name": "isVip",
@@ -615,6 +639,25 @@
 						"type": "address"
 					}
 				],
+				"name": "userDistributeSon",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
 				"name": "userRewards",
 				"outputs": [
 					{
@@ -705,19 +748,19 @@
 	},
 	"sources": {
 		"defi.sol": {
-			"keccak256": "0x6d364b726c94ef2a075e22e9722835f15d194e04fe4101b591d39e53a008b125",
+			"keccak256": "0x67ff9f54172d25c506f71fd88e57fc1e0d8904a0e36e7610f681be7a9c8bbfde",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://b5b6a9be790362d35f7d58069ecbf6b4be66b82c8b29f4fcb4878678c6b7228c",
-				"dweb:/ipfs/QmPBH4q5ooH557Auur1HCREQYgXiorM1b5PDR3Ykh9UKq9"
+				"bzz-raw://ba668dcbd12f0ad18f44b12a8f8d9181dfec3866c7c995d0bbb649cc9fb41b1d",
+				"dweb:/ipfs/QmRbau8eeH6V5XxhFddoxjDtFf3JTZkXeAo8MYXnvJfpsn"
 			]
 		},
 		"distribution.sol": {
-			"keccak256": "0xe5411d7685ebed77c0b77fbbc7e7ecaa5bf2112cda99e3da6fca1141e8094fab",
+			"keccak256": "0xdaae3d56b89a502f84c317a468e6f1583efbe7f3f438b2cca0dfe8ccee37e590",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://0c97360de9447d4920def263a7b7a9c25795132ff9793f469f07a10dc95ccb03",
-				"dweb:/ipfs/QmVUDHF5LNt3rvYoHjX2rrN4NDktESiyae5xnXwpzNCZYS"
+				"bzz-raw://aa9951c8f559ced299bc913fb262b50e8ccc1cab8359f197ecb5eb0d528dfaff",
+				"dweb:/ipfs/QmQaFZn1eKUsAYULRQy1j3JfZEtT9sn4pvvmkkJwkSnPtZ"
 			]
 		},
 		"pool.sol": {

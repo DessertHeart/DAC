@@ -25,6 +25,30 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "isMyFar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "totalDistributeReward",
 				"outputs": [
@@ -151,11 +175,11 @@
 	},
 	"sources": {
 		"distribution.sol": {
-			"keccak256": "0x988c7950e9d41a11a21ce23b220fa00adc8b615299f3d3def5f31d8b530102b0",
+			"keccak256": "0xdaae3d56b89a502f84c317a468e6f1583efbe7f3f438b2cca0dfe8ccee37e590",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://1964776ba0513d6a09161a9cde38bae96828b41eeca60b3a858b344a5b9cc976",
-				"dweb:/ipfs/Qmah2dtuAva7zmN1gg9zeedMDTsfpYzZaySc4Nq2XpYfvr"
+				"bzz-raw://aa9951c8f559ced299bc913fb262b50e8ccc1cab8359f197ecb5eb0d528dfaff",
+				"dweb:/ipfs/QmQaFZn1eKUsAYULRQy1j3JfZEtT9sn4pvvmkkJwkSnPtZ"
 			]
 		}
 	},

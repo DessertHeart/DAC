@@ -97,6 +97,13 @@ contract Defi is poor,Distribution{
             userDistributeAmount[farAddress] = amount;
         }
         
+        //记录用户有效推广量
+        if(isMyFar[farAddress][_buyer] == true){
+
+        }else{
+            userDistributeSon[farAddress] = userDistributeSon[farAddress] + 1;
+            isMyFar[farAddress][_buyer] =true;
+        }
 
         //记录全网所有用户拥有的债券数量
         allUserBDDAmount = allUserBDDAmount + amount;
@@ -347,7 +354,7 @@ contract Defi is poor,Distribution{
         }else{
             userDistributeGrade[_ad] = 6;
         }
-        
+
         return(userDistributeAmount[_ad],userDistributeGrade[_ad]);
 
    }
