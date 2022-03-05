@@ -27,7 +27,7 @@ contract Defi is poor,Distribution{
     /*----------------参数-------------------*/
 
     //每日奖励的数量
-    uint256 public dayRewardAmount = 2660;
+    uint256 public dayRewardAmount = 111;
 
     address BDD = 0xeb8e1A39FC308da4D50D4bf5633Ec42B7e1dD41d;
     address DAC = 0x696Db825D84656F07FC33be21eE5a586b3b286cA;
@@ -152,8 +152,8 @@ contract Defi is poor,Distribution{
         //
         uint256 Fee = (_amount*10)/100;
 
-        //最后给用户转的数量最后已经是扣除掉了10%的手续费和2%的通缩了
-        //那么这个其中的10%的手续费就能拿来生态建设了，而且
+        //最后给用户转的数量最后已经是扣除掉了10%的手续费和2%的通缩了 相当于DAC已经被扣除留在合约中了
+        //那么这个其中的10%的手续费就能拿来生态建设了
         uint amount = _amount - defla - Fee;
         
         //将DAC从合约转给用户  在奖励代币合约部署以后需要将代币的权益授权给合约
