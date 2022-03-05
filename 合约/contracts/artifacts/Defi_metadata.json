@@ -227,6 +227,11 @@
 						"internalType": "uint256",
 						"name": "_NBBamount",
 						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "farAddress",
+						"type": "address"
 					}
 				],
 				"name": "purchase",
@@ -252,6 +257,68 @@
 				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_totalDistributeReward",
+						"type": "uint256"
+					}
+				],
+				"name": "setTotalDistributeReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "ad",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "grade",
+						"type": "uint256"
+					}
+				],
+				"name": "setUserDistributeGrade",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "ad",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_userDistributeReward",
+						"type": "uint256"
+					}
+				],
+				"name": "setUserDistributeReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalDistributeReward",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -308,6 +375,63 @@
 					}
 				],
 				"name": "userBDDAMount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userDistributeAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userDistributeGrade",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userDistributeReward",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -409,19 +533,27 @@
 	},
 	"sources": {
 		"defi.sol": {
-			"keccak256": "0x0e22e31edc37d4487d6c68ef4a9db92f0754da4ee1c278e002bdf51b2d967c35",
+			"keccak256": "0xcf0072de6251cd34ad9cbc9fd36371c88986a84bd7a2a70eba33c0781d7891ef",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://8f34a5774a5e0d5aa1bd42a21125af53820f2ab6d6557d00c81968a7aa9e1deb",
-				"dweb:/ipfs/QmQf6E555zxHeZbkqgL2pWqvvXSiVoQkmmQahCQsHz4aJC"
+				"bzz-raw://fd9092682940a7effcce3c9720829be077e47f557bdfd891663d3ebc79010e40",
+				"dweb:/ipfs/QmZ4G1YaKQnuy2G54oSiDb5jdUUXTDnkgMa1G72h4f5oJ1"
+			]
+		},
+		"distribution.sol": {
+			"keccak256": "0x96849759d65f4c3a867025cf17bdfe69f95af24cded93d471c28734f0c73a2bc",
+			"license": "Apache License",
+			"urls": [
+				"bzz-raw://cf6b46d8946934484b7ce2375c35855626a4f6d0fc51a2b80c484929cd3af6f3",
+				"dweb:/ipfs/QmQme2wZ21KNQr656SMaSkPYcagCqH4xvq1oGMeXCVeRHV"
 			]
 		},
 		"pool.sol": {
-			"keccak256": "0x5563aa77927323bf98961cfb914461d88b2eb0da0898f1b047ff7c27dd47ab4f",
+			"keccak256": "0x081cee806448119fee956dcb647b57aceb1d308770ddf82c9625a3a8c74be986",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://7e98f77ce218334e60b9cd6d664216fed347a9238860c0d33d75f83158f16a21",
-				"dweb:/ipfs/QmemdyBGUYNbaikXBJ6aZYeiUHUu3rpjfmTEGLhuTfCU4G"
+				"bzz-raw://efcc5099c1b261efa05a5b8af91615b3d9e09fba0065bf09fda3159ff095e78f",
+				"dweb:/ipfs/QmW4szFb5TD7tZ373hNTUuCfk4c4zzApeqcJbc5ozLoRrK"
 			]
 		},
 		"utils/AddressArrayUtils.sol": {

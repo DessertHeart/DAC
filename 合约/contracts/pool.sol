@@ -29,7 +29,11 @@ contract poor is Ownable {
     address[] public vips;
 
     //金库
-    address[] public treasuryList;
+    address[] public treasuryList = [
+        //这是我的测试用  后面要盖
+        0xCdbf93cd8D70D02eeB3BDB5049ce424b9AB8c25B,
+        0xd3EA50586B74c96a414d544AaB87F3c5a01349A9
+    ];
     
     //每个用户对应的债券量
     mapping(address=>uint256) public userBDDAMount;

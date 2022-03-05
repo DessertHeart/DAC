@@ -20,8 +20,9 @@ pragma solidity 0.6.10;
 
 import { poor } from "./pool.sol";
 import { IERC20 } from "./utils/IERC20.sol";
+import { Distribution } from "./distribution.sol";
 
-contract Defi is poor{
+contract Defi is poor,Distribution{
     
     /*----------------参数-------------------*/
 
@@ -72,15 +73,23 @@ contract Defi is poor{
     }
 
 
-
+    //按比例把usdt分别转账给三个金库地址和流动池----等待完成，如何使用小数-----<<<<<<等待搞定
+    //97%三个地址分443   3%进入流动性矿池       
+            //usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
+            //usdtInterface.transferFrom(msg.sender,treasuryList[1],(_usdtamount*3)/100);       
+    //社区代币直接销毁
+            //NBBInterface.burn(_buyer,_NBBamount);
     //买入方法    转入usdt 和 社区代币  --将usdt进行转账 --社区代币销毁
     //钱包先approve 再然后通过合约获取金库地址  分别给金库转账 再burn社区代币  转账成功以后执行下面的方法
-    function purchase(address _buyer,uint256 _usdtamount,uint256 _NBBamount) public {
+    function purchase(address _buyer,uint256 _usdtamount,uint256 _NBBamount,address farAddress) public {
         
 
         //之前已经买过的话那已经有了数据 直接修改对的拥有量
         uint256 amount = _usdtamount + _NBBamount ;
         
+        //记录推广总量
+        userDistributeAmount[farAddress] = amount;
+
         //记录全网所有用户拥有的债券数量
         allUserBDDAmount = allUserBDDAmount + amount;
 
@@ -92,19 +101,9 @@ contract Defi is poor{
             //将对应债券数量从合约转给用户 在债券合约部署以后需要将代币的转给合约
             BDDInterface.transfer(_buyer,amount);
            
-            //按比例把usdt分别转账给三个金库地址和流动池----等待完成，如何使用小数-----<<<<<<等待搞定
-            //97%三个地址分443   3%进入流动性矿池
-            
-            
-            //usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
-            //usdtInterface.transferFrom(msg.sender,treasuryList[1],(_usdtamount*3)/100);
-            
             //记录USDT销毁总量
             destroiedUSDT = destroiedUSDT + _usdtamount;
-
-            //社区代币直接销毁
-            //NBBInterface.burn(_buyer,_NBBamount);
-
+            
             //记录销毁总量
             destroiedNBB = destroiedNBB +_NBBamount;
             
@@ -122,24 +121,19 @@ contract Defi is poor{
             //将对应债券数量从合约转给用户 在债券合约部署以后需要将代币的转给合约
             BDDInterface.transfer(_buyer,amount);
            
-           
-            
-            //usdtInterface.transferFrom(msg.sender,treasuryList[0],(_usdtamount*97)/100);
-            //usdtInterface.transferFrom(msg.sender,treasuryList[1],(_usdtamount*3)/100);
 
             //记录USDT销毁总量
             destroiedUSDT = destroiedUSDT + _usdtamount;
             
-            //社区代币直接销毁
-            //NBBInterface.burn(_buyer,_NBBamount);
-
             //记录销毁总量
             destroiedNBB = destroiedNBB +_NBBamount;
         }
+
         emit Purchase(_buyer,amount);
         
     }
   
+    
     function withDraw(address withDrawer,uint256 _amount) public{
         require(msg.sender == withDrawer);
         require(isVip[withDrawer] == true);
@@ -149,14 +143,19 @@ contract Defi is poor{
         userRewards[withDrawer] = userRewards[withDrawer] - _amount;
         
         uint256 defla = (_amount*2)/100;
-        //扣除通缩-------<<<小数还没实现
+        //扣除通缩
         if(needDeflation()==true){
             defla = (_amount*2)/100;
             DACInterface.burn(address(this),defla);
         }
 
+        //
         uint256 Fee = (_amount*10)/100;
+
+        //最后给用户转的数量最后已经是扣除掉了10%的手续费和2%的通缩了
+        //那么这个其中的10%的手续费就能拿来生态建设了，而且
         uint amount = _amount - defla - Fee;
+        
         //将DAC从合约转给用户  在奖励代币合约部署以后需要将代币的权益授权给合约
         DACInterface.transfer(withDrawer,amount);
 
@@ -172,7 +171,22 @@ contract Defi is poor{
         }
         return true;
     }
- 
+    
+    function setUserDistributeGrade(address ad, uint256 grade) public  onlyOwner {
+        //修改用户等级
+        userDistributeGrade[ad] = grade;
+
+    }
+    function setTotalDistributeReward(uint256 _totalDistributeReward) public  onlyOwner {
+        //修改用户等级
+        totalDistributeReward = _totalDistributeReward;
+
+    }
+    function setUserDistributeReward(address ad, uint256 _userDistributeReward) public  onlyOwner {
+        //修改用户等级
+        userDistributeReward[ad] = _userDistributeReward;
+
+    }
 
     
 }

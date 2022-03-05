@@ -90,20 +90,32 @@ export default {
   },
 
   async mounted() {
-    //判断页面是否安装Metamask
+    //判断页面是否安装Metamask 有的话就能获取到ethereum
     if (typeof window.ethereum !== 'undefined') {
+      //获取etherem
       const ethereum = window.ethereum
-      //禁止自动刷新，metamask要求写的
+      
+      //输出一下  是一个对象 里面有很多方法
+      console.log(ethereum)
+
+      //禁止自动刷新，metamask要求写的 
       ethereum.autoRefreshOnNetworkChange = false
 
-        //第一次链接Metamask
+        //第一次链接Metamask 如果是第一次链接  会出现弹窗  连接过了就没了
         const accounts = await ethereum.enable()
+        
+        //输出获取到的钱包里面已经连接到该网址的账户 是数组
         console.log(accounts)
-        //初始化Provider
+        
+        //初始化Provider 
         const provider = window['ethereum']
+
+        //这个就是ethereum 输出一下  一个东西   把他当作一个提供方法的对象
         console.log(provider)
-        //获取网络ID
+        
+        //获取网络ID 
         console.log(provider.chainId)
+        
         //实例化Web3
         window.defaultAccount = accounts[0].toLowerCase()
       //   const web3 = new Web3(provider)
