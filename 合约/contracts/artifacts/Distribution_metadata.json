@@ -106,6 +106,25 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userDistributeSon",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -132,11 +151,11 @@
 	},
 	"sources": {
 		"distribution.sol": {
-			"keccak256": "0xe5411d7685ebed77c0b77fbbc7e7ecaa5bf2112cda99e3da6fca1141e8094fab",
+			"keccak256": "0x988c7950e9d41a11a21ce23b220fa00adc8b615299f3d3def5f31d8b530102b0",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://0c97360de9447d4920def263a7b7a9c25795132ff9793f469f07a10dc95ccb03",
-				"dweb:/ipfs/QmVUDHF5LNt3rvYoHjX2rrN4NDktESiyae5xnXwpzNCZYS"
+				"bzz-raw://1964776ba0513d6a09161a9cde38bae96828b41eeca60b3a858b344a5b9cc976",
+				"dweb:/ipfs/Qmah2dtuAva7zmN1gg9zeedMDTsfpYzZaySc4Nq2XpYfvr"
 			]
 		}
 	},

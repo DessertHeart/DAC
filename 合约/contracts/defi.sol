@@ -272,7 +272,7 @@ contract Defi is poor,Distribution{
 
     //输入["1","2"] 就会出错
      function testsort(uint256[] memory _Addrs) public pure returns(uint256[] memory ){
-         uint256[] memory Addrs;
+         uint256[] memory Addrs =new uint256[](2);
         // uint256 count = 0;
         Addrs = _Addrs;
          uint256 length = _Addrs.length;
@@ -330,6 +330,27 @@ contract Defi is poor,Distribution{
         }
     }
    
+   function getInfo(address _ad) public returns(uint256,uint256) {
+       //推广量
+       //等级
+        require(isDistribuMember[_ad]==true,"you are not distribute menber");
+        if(userBDDAMount[_ad] >= 100 || userBDDAMount[_ad] < 500){
+            userDistributeGrade[_ad] = 1;
+        }else if(userBDDAMount[_ad] >= 500 || userBDDAMount[_ad] < 1000){
+            userDistributeGrade[_ad] = 2;
+        }else if(userBDDAMount[_ad] >= 1000 || userBDDAMount[_ad] < 2000){
+            userDistributeGrade[_ad] = 3;
+        }else if(userBDDAMount[_ad] >= 2000 || userBDDAMount[_ad] < 5000){
+            userDistributeGrade[_ad] = 4;
+        }else if(userBDDAMount[_ad] >= 5000 || userBDDAMount[_ad] < 10000){
+            userDistributeGrade[_ad] = 5;
+        }else{
+            userDistributeGrade[_ad] = 6;
+        }
+        
+        return(userDistributeAmount[_ad],userDistributeGrade[_ad]);
+
+   }
    
 
     

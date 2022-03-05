@@ -173,6 +173,30 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_ad",
+						"type": "address"
+					}
+				],
+				"name": "getInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "getTreasuryList",
 				"outputs": [
@@ -681,11 +705,11 @@
 	},
 	"sources": {
 		"defi.sol": {
-			"keccak256": "0x15da8da6e4874451a8dac5989dce5c809a628c78c76a0c75173f743d6023f0b4",
+			"keccak256": "0x6d364b726c94ef2a075e22e9722835f15d194e04fe4101b591d39e53a008b125",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://29822baa9da877f459a2272db8dcfc37b50c45f5907216b39098c1c999ffac58",
-				"dweb:/ipfs/QmbjPYhSm4xPi8W4XhBV2YB9orCZPkREYatCsBsZPkDYfD"
+				"bzz-raw://b5b6a9be790362d35f7d58069ecbf6b4be66b82c8b29f4fcb4878678c6b7228c",
+				"dweb:/ipfs/QmPBH4q5ooH557Auur1HCREQYgXiorM1b5PDR3Ykh9UKq9"
 			]
 		},
 		"distribution.sol": {

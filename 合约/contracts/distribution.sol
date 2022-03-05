@@ -31,6 +31,9 @@ contract Distribution {
     //记录这个用户的等级
     mapping(address => uint256) public userDistributeGrade;
 
+    //记录这个用户有效的推广数量
+    mapping(address => uint256) public userDistributeSon;
+
     //记录总的分销奖励
     uint256 public totalDistributeReward;
 
