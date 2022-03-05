@@ -20,7 +20,11 @@
 pragma solidity 0.6.10;
 
 contract Distribution {
-    
+    //所有的推广的人
+    address[] public distributeMember;
+
+    mapping(address => bool) isDistribuMember;
+
     //记录用户的推广量
     mapping(address => uint256) public userDistributeAmount;
 
@@ -32,6 +36,9 @@ contract Distribution {
 
     //记录用户自己的奖励数量
     mapping(address => uint256) public userDistributeReward;
+
+    //提现总量
+    uint256 public totolWithdrawAmount;
 
 
 }

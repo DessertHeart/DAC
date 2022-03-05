@@ -6,8 +6,40 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "distributeMember",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "totalDistributeReward",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totolWithdrawAmount",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -100,11 +132,11 @@
 	},
 	"sources": {
 		"distribution.sol": {
-			"keccak256": "0x96849759d65f4c3a867025cf17bdfe69f95af24cded93d471c28734f0c73a2bc",
+			"keccak256": "0xe5411d7685ebed77c0b77fbbc7e7ecaa5bf2112cda99e3da6fca1141e8094fab",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://cf6b46d8946934484b7ce2375c35855626a4f6d0fc51a2b80c484929cd3af6f3",
-				"dweb:/ipfs/QmQme2wZ21KNQr656SMaSkPYcagCqH4xvq1oGMeXCVeRHV"
+				"bzz-raw://0c97360de9447d4920def263a7b7a9c25795132ff9793f469f07a10dc95ccb03",
+				"dweb:/ipfs/QmVUDHF5LNt3rvYoHjX2rrN4NDktESiyae5xnXwpzNCZYS"
 			]
 		}
 	},

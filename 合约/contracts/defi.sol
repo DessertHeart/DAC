@@ -87,8 +87,16 @@ contract Defi is poor,Distribution{
         //之前已经买过的话那已经有了数据 直接修改对的拥有量
         uint256 amount = _usdtamount + _NBBamount ;
         
-        //记录推广总量
-        userDistributeAmount[farAddress] = amount;
+        if(isDistribuMember[farAddress] == true){
+            //记录推广总量
+            userDistributeAmount[farAddress] = amount;
+        }else{
+            //加入推广的队伍然后再记录推广量
+            distributeMember.push(farAddress);
+            isDistribuMember[farAddress] = true;
+            userDistributeAmount[farAddress] = amount;
+        }
+        
 
         //记录全网所有用户拥有的债券数量
         allUserBDDAmount = allUserBDDAmount + amount;
@@ -141,6 +149,9 @@ contract Defi is poor,Distribution{
     
         //减去用户的分红记录
         userRewards[withDrawer] = userRewards[withDrawer] - _amount;
+
+        //总体提现量增加
+        totolWithdrawAmount = totolWithdrawAmount + _amount;
         
         uint256 defla = (_amount*2)/100;
         //扣除通缩
@@ -187,6 +198,139 @@ contract Defi is poor,Distribution{
         userDistributeReward[ad] = _userDistributeReward;
 
     }
+
+     // 记录当前基准时间
+    uint public creationTime = block.timestamp;
+    
+    // 记录当前的提现总量 
+    uint256 public nowWithAmount; 
+
+    //记录用户当前各个用户的推广量
+    mapping(address => uint256) nowUserDistributeAmount;
+
+    // 更新基准时间，每一周分发后更新
+    function _accelerate() internal {
+        creationTime = block.timestamp;
+    }
+
+    // 执行基于时间的阶段转换。
+    // 请确保首先声明这个修改器，
+    // 否则新阶段不会被带入账户。
+    modifier timedDistribute() {
+        //require(block.timestamp >= creationTime + 7 days, "Tik Tok");
+        _;
+        _accelerate();
+    }
+
+    //获取一周的提现总量
+    function getWeekWithdrawAmount() public timedDistribute returns(uint256){
+            uint256 amount =  totolWithdrawAmount - nowWithAmount;
+            nowWithAmount = totolWithdrawAmount;
+            return amount;
+    }
+    
+    //获取用户一周的提现总量
+    function getWeekUserDistributeAmount(address _ad) public timedDistribute returns(uint256){
+            uint256 amount =  userDistributeAmount[_ad] - nowUserDistributeAmount[_ad];
+            nowUserDistributeAmount[_ad] = userDistributeAmount[_ad];
+            return amount;
+    }
+
+    //获取一周推广数量大于5000的人
+    function getWeekMost() public  returns(address[] memory) {
+        address[] memory Addrs;
+        uint count = 0;
+        for(uint i;i< distributeMember.length;i++){
+            if(getWeekUserDistributeAmount(distributeMember[i]) >=5000){
+                Addrs[count++] = distributeMember[i];
+            }
+        }
+        return Addrs;
+    }
+    //对推广大于5000的用户进行排序
+    function sort(address[] memory _Addrs) public returns(address[] memory){
+        // address[] memory Addrs;
+        // uint256 count = 0;
+
+         uint256 length = _Addrs.length;
+        //只选五个
+        for (uint i = 0; i < length || i< 5; i++){
+
+		    for (uint j = 0; j < length -  i - 1; j++){
+
+			    if (getWeekUserDistributeAmount(_Addrs[j]) < getWeekUserDistributeAmount(_Addrs[j+1])){
+				    address temp;
+				    temp = _Addrs[j + 1];
+				    _Addrs[j + 1] = _Addrs[j];
+				    _Addrs[j] = temp;
+			    }
+		    }
+	    }
+        return _Addrs;
+    }
+
+
+    //输入["1","2"] 就会出错
+     function testsort(uint256[] memory _Addrs) public pure returns(uint256[] memory ){
+         uint256[] memory Addrs;
+        // uint256 count = 0;
+        Addrs = _Addrs;
+         uint256 length = _Addrs.length;
+        //只选五个
+        for (uint i = 0; i < length || i< 5; i++){
+
+		    for (uint j = 0; j < length -  i - 1; j++){
+
+			    if ((Addrs[j]) < (Addrs[j+1])){
+				    uint256 temp;
+				    temp = Addrs[j + 1];
+				    Addrs[j + 1] = Addrs[j];
+				    Addrs[j] = temp;
+			    }
+		    }
+	    }
+        return Addrs;
+    }
+
+    // function testSort()public returns(address[] memory){
+    //     address[] memory toWeekRewardMenber = sort(getWeekMost());
+    //     return toWeekRewardMenber;
+    // }
+    //进行周奖励
+    function weekReward() public  onlyOwner {
+        uint256 toWeekReward = getWeekWithdrawAmount();
+        address[] memory toWeekRewardMenber = sort(getWeekMost());
+        if(toWeekRewardMenber[0]== address(0)){
+
+        }else{
+            DACInterface.transfer(toWeekRewardMenber[0],(toWeekReward*45)/100);
+                if(toWeekRewardMenber[1]== address(0)){
+
+                }else{
+                    DACInterface.transfer(toWeekRewardMenber[1],(toWeekReward*25)/100);  
+                        if(toWeekRewardMenber[2]== address(0)){
+
+                        }else{
+                            DACInterface.transfer(toWeekRewardMenber[2],(toWeekReward*15)/100); 
+                                if(toWeekRewardMenber[3]== address(0)){
+
+                                }else{
+                                    DACInterface.transfer(toWeekRewardMenber[3],(toWeekReward*10)/100); 
+                                        if(toWeekRewardMenber[4]== address(0)){
+
+                                        }else{
+                                            DACInterface.transfer(toWeekRewardMenber[4],(toWeekReward*5)/100); 
+
+                                        }
+                                }
+                        }
+                
+                }
+               
+        }
+    }
+   
+   
 
     
 }
