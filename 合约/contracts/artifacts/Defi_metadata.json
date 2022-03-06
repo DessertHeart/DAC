@@ -223,19 +223,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getWeekMost",
-				"outputs": [
-					{
-						"internalType": "address[]",
-						"name": "",
-						"type": "address[]"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -447,41 +434,10 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address[]",
-						"name": "_Addrs",
-						"type": "address[]"
-					}
-				],
+				"inputs": [],
 				"name": "sort",
-				"outputs": [
-					{
-						"internalType": "address[]",
-						"name": "",
-						"type": "address[]"
-					}
-				],
+				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256[]",
-						"name": "_Addrs",
-						"type": "uint256[]"
-					}
-				],
-				"name": "testsort",
-				"outputs": [
-					{
-						"internalType": "uint256[]",
-						"name": "",
-						"type": "uint256[]"
-					}
-				],
-				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
@@ -553,6 +509,13 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "updateWeekMost",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -748,11 +711,11 @@
 	},
 	"sources": {
 		"defi.sol": {
-			"keccak256": "0x464a51aa9dc0c4df198965ac45a882b20aa2ca6d02c4314d583a5e2bab77434b",
+			"keccak256": "0x263dbb59ad6aa9584c5eb2f422024abbe4641eec4f9ca30e99ca7ece96721ed4",
 			"license": "Apache License",
 			"urls": [
-				"bzz-raw://cbacb58ca5e44629668301ddcaee284079f3eaaf15256936d88188a2b70fe9c0",
-				"dweb:/ipfs/QmbHaHYwSh5VcQG2CNJTqTzYpJYWfwmzospHz657yM4Cen"
+				"bzz-raw://1b80e85bcf00c38459c77db91f0f2942622f5239030c82ddd6705b75a94fdf26",
+				"dweb:/ipfs/QmRKrRDzHrpjUbrx9YZ3C5cxUA8M2JcghZog9zCTSEFSxC"
 			]
 		},
 		"distribution.sol": {

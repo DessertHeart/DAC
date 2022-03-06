@@ -30,7 +30,7 @@ contract Defi is poor,Distribution{
     uint256 public dayRewardAmount = 111;
 
     address BDD = 0xeb8e1A39FC308da4D50D4bf5633Ec42B7e1dD41d;
-    address DAC = 0x696Db825D84656F07FC33be21eE5a586b3b286cA;
+    address DAC = 0xd457540c3f08f7F759206B5eA9a4cBa321dE60DC;
     address NBB = 0x5300A338D637376806d1d5C1dEf07614FCfC1645;
 
     IERC20 BDDInterface = IERC20(BDD);
@@ -215,6 +215,9 @@ contract Defi is poor,Distribution{
     //记录用户当前各个用户的推广量
     mapping(address => uint256) nowUserDistributeAmount;
 
+    address[] getWeekMost = [0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db, 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB,
+                            address(0),address(0),address(0)];
+
     // 更新基准时间，每一周分发后更新
     function _accelerate() internal {
         creationTime = block.timestamp;
@@ -244,99 +247,82 @@ contract Defi is poor,Distribution{
     }
 
     //获取一周推广数量大于5000的人
-    function getWeekMost() public  returns(address[] memory) {
-        address[] memory Addrs;
+    function updateWeekMost() public timedDistribute  {
         uint count = 0;
         for(uint i;i< distributeMember.length;i++){
             if(getWeekUserDistributeAmount(distributeMember[i]) >=5000){
-                Addrs[count++] = distributeMember[i];
+                getWeekMost[count++] = distributeMember[i];
             }
         }
-        return Addrs;
+     
     }
     
-    //对推广大于5000的用户进行排序
-    function sort(address[] memory _Addrs) public returns(address[] memory){
-        // address[] memory Addrs;
-        // uint256 count = 0;
+    function sort() public {
 
-         uint256 length = _Addrs.length;
+         uint256 length = getWeekMost.length;
 
         //这里只冒泡排序，length -1 次排序
         for (uint i = 0; i < length-1 ; i++){
 
 		    for (uint j = 0; j < length -  i - 1; j++){
 
-			    if (getWeekUserDistributeAmount(_Addrs[j]) < getWeekUserDistributeAmount(_Addrs[j+1])){
+			    if (getWeekUserDistributeAmount(getWeekMost[j]) < getWeekUserDistributeAmount(getWeekMost[j+1])){
 				    address temp;
-				    temp = _Addrs[j + 1];
-				    _Addrs[j + 1] = _Addrs[j];
-				    _Addrs[j] = temp;
+				    temp = getWeekMost[j + 1];
+				    getWeekMost[j + 1] = getWeekMost[j];
+				    getWeekMost[j] = temp;
 			    }
 		    }
 	    }
-        //返回后，后面的逻辑取 0-4 Index的值
-        return _Addrs;
     }
 
 
-    //输入["1","2"] 就会出错
-     function testsort(uint256[] memory _Addrs) public pure returns(uint256[] memory ){
-         uint256[] memory Addrs =new uint256[](2);
-        // uint256 count = 0;
-        Addrs = _Addrs;
-         uint256 length = _Addrs.length;
-        //只选五个
-        for (uint i = 0; i < length || i< 5; i++){
-
-		    for (uint j = 0; j < length -  i - 1; j++){
-
-			    if ((Addrs[j]) < (Addrs[j+1])){
-				    uint256 temp;
-				    temp = Addrs[j + 1];
-				    Addrs[j + 1] = Addrs[j];
-				    Addrs[j] = temp;
-			    }
-		    }
-	    }
-        return Addrs;
-    }
-
-    // function testSort()public returns(address[] memory){
-    //     address[] memory toWeekRewardMenber = sort(getWeekMost());
-    //     return toWeekRewardMenber;
-    // }
+    
     //进行周奖励
     function weekReward() public  onlyOwner {
         uint256 toWeekReward = getWeekWithdrawAmount();
-        address[] memory toWeekRewardMenber = sort(getWeekMost());
-        if(toWeekRewardMenber[0]== address(0)){
+        
+        //address[] memory toWeekRewardMenber = new address[](5);
+        
+        //更新
+        updateWeekMost();
 
+        sort();// 内部对getWeekMost[]排序
+
+        // toWeekRewardMenber[0] = getWeekMost[0];
+        // toWeekRewardMenber[1] = getWeekMost[1];
+        // toWeekRewardMenber[2] = getWeekMost[2];
+        // toWeekRewardMenber[3] = getWeekMost[3];
+        // toWeekRewardMenber[4] = getWeekMost[4];
+
+        // //require(toWeekRewardMenber[0]!=address(0),d)
+        if(getWeekMost[0]== address(0)){
+            
         }else{
-            DACInterface.transfer(toWeekRewardMenber[0],(toWeekReward*45)/100);
-                if(toWeekRewardMenber[1]== address(0)){
+            DACInterface.transfer(getWeekMost[0],(toWeekReward*45)/100);
+                if(getWeekMost[1]== address(0)){
 
                 }else{
-                    DACInterface.transfer(toWeekRewardMenber[1],(toWeekReward*25)/100);  
-                        if(toWeekRewardMenber[2]== address(0)){
+                    DACInterface.transfer(getWeekMost[1],(toWeekReward*25)/100);  
+                        if(getWeekMost[2]== address(0)){
 
                         }else{
-                            DACInterface.transfer(toWeekRewardMenber[2],(toWeekReward*15)/100); 
-                                if(toWeekRewardMenber[3]== address(0)){
+                            DACInterface.transfer(getWeekMost[2],(toWeekReward*15)/100); 
+                                if(getWeekMost[3]== address(0)){
 
                                 }else{
-                                    DACInterface.transfer(toWeekRewardMenber[3],(toWeekReward*10)/100); 
-                                        if(toWeekRewardMenber[4]== address(0)){
+                                    DACInterface.transfer(getWeekMost[3],(toWeekReward*10)/100); 
+                                        if(getWeekMost[4]== address(0)){
 
                                         }else{
-                                            DACInterface.transfer(toWeekRewardMenber[4],(toWeekReward*5)/100); 
+                                            DACInterface.transfer(getWeekMost[4],(toWeekReward*5)/100); 
 
                                         }
                                 }
                         }
                 
                 }
-               
+            
         }
     }
    
