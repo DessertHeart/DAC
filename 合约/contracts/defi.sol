@@ -254,14 +254,16 @@ contract Defi is poor,Distribution{
         }
         return Addrs;
     }
+    
     //对推广大于5000的用户进行排序
     function sort(address[] memory _Addrs) public returns(address[] memory){
         // address[] memory Addrs;
         // uint256 count = 0;
 
          uint256 length = _Addrs.length;
-        //只选五个
-        for (uint i = 0; i < length || i< 5; i++){
+
+        //这里只冒泡排序，length -1 次排序
+        for (uint i = 0; i < length-1 ; i++){
 
 		    for (uint j = 0; j < length -  i - 1; j++){
 
@@ -273,6 +275,7 @@ contract Defi is poor,Distribution{
 			    }
 		    }
 	    }
+        //返回后，后面的逻辑取 0-4 Index的值
         return _Addrs;
     }
 
