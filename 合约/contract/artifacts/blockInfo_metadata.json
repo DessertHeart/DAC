@@ -1,0 +1,71 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "a",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "b",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"blockinfo.sol": "blockInfo"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"blockinfo.sol": {
+			"keccak256": "0xfbb493344d47dd0730974d79b5f6fbe873c4ac4fa7a197f2a09e49954f8998bc",
+			"urls": [
+				"bzz-raw://007f41d2603398e6de952fd86cc1c3f8e15b631ed956179b969abd39eedd3cf7",
+				"dweb:/ipfs/QmapEatpcHMByUUypPxn1gLouLybXYTWSxji9zv3AXpeNx"
+			]
+		}
+	},
+	"version": 1
+}

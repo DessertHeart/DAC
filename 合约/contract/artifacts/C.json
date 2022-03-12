@@ -1,0 +1,60 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"görli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212209ab4936ac0d6af26549c78f1b04c8de55c37f10ebcd9e30b50ebb78f47aa086864736f6c634300060a0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x3F DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SWAP11 0xB4 SWAP4 PUSH11 0xC0D6AF26549C78F1B04C8D 0xE5 0x5C CALLDATACOPY CALL 0xE 0xBC 0xD9 0xE3 SIGNEXTEND POP 0xEB 0xB7 DUP16 SELFBALANCE 0xAA ADDMOD PUSH9 0x64736F6C634300060A STOP CALLER ",
+			"sourceMap": "35:250:0:-:0;;;;;;;;;;;;;;;;;;;"
+		},
+		"deployedBytecode": {
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "6080604052600080fdfea26469706673582212209ab4936ac0d6af26549c78f1b04c8de55c37f10ebcd9e30b50ebb78f47aa086864736f6c634300060a0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SWAP11 0xB4 SWAP4 PUSH11 0xC0D6AF26549C78F1B04C8D 0xE5 0x5C CALLDATACOPY CALL 0xE 0xBC 0xD9 0xE3 SIGNEXTEND POP 0xEB 0xB7 DUP16 SELFBALANCE 0xAA ADDMOD PUSH9 0x64736F6C634300060A STOP CALLER ",
+			"sourceMap": "35:250:0:-:0;;;;;"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "12600",
+				"executionCost": "66",
+				"totalCost": "12666"
+			},
+			"internal": {
+				"_msgData()": "infinite",
+				"_msgSender()": "infinite"
+			}
+		},
+		"methodIdentifiers": {}
+	},
+	"abi": []
+}

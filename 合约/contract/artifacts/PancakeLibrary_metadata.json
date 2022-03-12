@@ -1,0 +1,40 @@
+{
+	"compiler": {
+		"version": "0.6.6+commit.6c089d02"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PancakeRouter.sol": "PancakeLibrary"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"PancakeRouter.sol": {
+			"keccak256": "0x996d7b138792ed5e0ddc17d9a1614736bdea80992f20bfca45f5de7d2f2cd35e",
+			"urls": [
+				"bzz-raw://fa1c6c639ca8d3958847f2d0201caaa97658e31939bcdc51104e19f736d8fd14",
+				"dweb:/ipfs/QmbBE2vYWusgJh1thq3CS761ffUmGnRcpWV1KD8QWRHoHz"
+			]
+		}
+	},
+	"version": 1
+}
