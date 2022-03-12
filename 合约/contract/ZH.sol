@@ -26,7 +26,7 @@ interface IERC20 {
     function totalSupply() external view returns (uint256);
 
    
-    function balanceOf(address account) external view returns (uint256);
+    function balanceOf(address account) external view returns (uint256);https://github.com/wpzt116199/DAC/blob/main/%E5%90%88%E7%BA%A6/contract/TOO.sol
 
    
     function transfer(address recipient, uint256 amount) external returns (bool);
