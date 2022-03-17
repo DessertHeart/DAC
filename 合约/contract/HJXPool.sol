@@ -346,7 +346,7 @@ interface IUniswapRouter02 is IUniswapRouter01 {
 
 
 
-contract NxPool is IERC20, Ownable {
+contract HJXPool is IERC20, Ownable {
 
     using SafeMath for uint256;
     using SafeERC20 for IERC20Meta;
