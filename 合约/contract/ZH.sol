@@ -276,8 +276,8 @@ contract ERC20 is Context, IERC20 {
 pragma solidity >=0.6.0 <0.8.0;
 
 
-contract TOOToken is ERC20 {
-    constructor() ERC20("TOO", "TOO") public {
-        _mint(msg.sender, 5000000 * 1e18);
+contract ZH is ERC20 {
+    constructor() ERC20("ZH", "ZH") public {
+        _mint(msg.sender, 1000000 * 1e18);
     }
 }
