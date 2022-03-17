@@ -666,7 +666,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"PancakeRouter.sol": "IPancakePair"
+			"contract/PancakeRouter.sol": "IPancakePair"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -674,17 +674,17 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
-		"PancakeRouter.sol": {
-			"keccak256": "0x996d7b138792ed5e0ddc17d9a1614736bdea80992f20bfca45f5de7d2f2cd35e",
+		"contract/PancakeRouter.sol": {
+			"keccak256": "0x590f307fae3e43c648c5c887000ababc391c882161d14f217ed9b82e2ef8319b",
 			"urls": [
-				"bzz-raw://fa1c6c639ca8d3958847f2d0201caaa97658e31939bcdc51104e19f736d8fd14",
-				"dweb:/ipfs/QmbBE2vYWusgJh1thq3CS761ffUmGnRcpWV1KD8QWRHoHz"
+				"bzz-raw://7e89dff41be6bc50458100e78fa157ddba1de101de41d4bee936a6938966625e",
+				"dweb:/ipfs/QmW35kJRL7bJXMyq2xq5v2Y2sfZYj515iKL3eg7ooPFMcf"
 			]
 		}
 	},

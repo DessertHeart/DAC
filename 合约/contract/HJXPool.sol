@@ -420,7 +420,7 @@ contract HJXPool is IERC20, Ownable {
     Pool private _pool;    // 定义一个总池子
     TokenPool[] private _tokenPools;    // 定义一个社区池数组
 
-     
+    receive() external payable {}
     // 构造函数
     constructor(address router_,address usdt_,address xToken_,address root_,address rebateFee_,address market_) public {
         _usdt = usdt_;    

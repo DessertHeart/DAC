@@ -1,24 +1,20 @@
 {
 	"compiler": {
-		"version": "0.7.6+commit.7338295f"
+		"version": "0.6.10+commit.00c0fcaf"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [],
 		"devdoc": {
-			"kind": "dev",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"HJXPool.sol": "Context"
+			"contract/HJXPool.sol": "Context"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -26,18 +22,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
-		"HJXPool.sol": {
-			"keccak256": "0x182a13183c5894f81b78d7884335926c5a43b071758616645e9bb7e713b6aeba",
+		"contract/HJXPool.sol": {
+			"keccak256": "0xb7c4552fed8b0603696725c34d080808fd3f959b8e2aa27a06277344609dbda0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://15f448732e66a7656530c0234438b926ee1fec7cd9176534d3b09618af198941",
-				"dweb:/ipfs/QmdpEkpVbPeVDdGYegQg9UvmXHavywpVYvGdpqJwixbpf6"
+				"bzz-raw://db6d6ecada505a3455419e5b16aef5b0f09b515261b9e0079266b14ac9c5abe6",
+				"dweb:/ipfs/QmcnANpZ3hBhrtLgCR7d5pXeKSvAj1aGrK5kKdKX3WbJcq"
 			]
 		}
 	},

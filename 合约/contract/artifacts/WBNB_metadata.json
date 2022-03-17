@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.4.26+commit.4563c3fc"
+		"version": "0.4.18+commit.9cf6e910"
 	},
 	"language": "Solidity",
 	"output": {
@@ -292,9 +292,8 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"WBNB.sol": "WBNB"
+			"contract/WBNB.sol": "WBNB"
 		},
-		"evmVersion": "byzantium",
 		"libraries": {},
 		"optimizer": {
 			"enabled": false,
@@ -303,10 +302,10 @@
 		"remappings": []
 	},
 	"sources": {
-		"WBNB.sol": {
-			"keccak256": "0x387a66d9d059b4c9fd5edb88b8293241c83d1858e461e189472a05b1ef039d38",
+		"contract/WBNB.sol": {
+			"keccak256": "0x30a1c71114091165c01d785506028ee747d6383363c85697a6b10aaf295ca111",
 			"urls": [
-				"bzzr://2aa0da29602448ef470a63a6dc00a8b99615f21bcf7e88c8f7b12341b3516946"
+				"bzzr://0c726ced92ce078caeeaa8f74e84189cf0750fad1544f6607548ab3fe89f1208"
 			]
 		}
 	},

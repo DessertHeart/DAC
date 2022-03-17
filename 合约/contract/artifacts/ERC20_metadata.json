@@ -301,7 +301,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"TOO.sol": "ERC20"
+			"contract/ZH.sol": "ERC20"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -309,18 +309,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
-		"TOO.sol": {
-			"keccak256": "0x10f0568853f383daa969a040a739f872f7c9d03c1df2a569c41611992947cd3f",
+		"contract/ZH.sol": {
+			"keccak256": "0x5d5b7835192f168e5cf52649e146d948b7aa172bae64cecec526fec517a9d590",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://91fc00da80e9cb52e894752938fe6bed3a08588a48a834e796ebc435449cba30",
-				"dweb:/ipfs/QmYkRKTTNQ7P3yzm7NxE4k3kUGWkyxJy3YUFa4XKJA1a7j"
+				"bzz-raw://e6b7bb3a3aa69ff4dbdd61557d847e89589453ca5236ca641c1291c6408692f3",
+				"dweb:/ipfs/QmbaCY2YdsBkDKrs8ynnUgXnLcsGzPxNvDSzQBm4S3b5vQ"
 			]
 		}
 	},

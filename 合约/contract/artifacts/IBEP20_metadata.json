@@ -264,10 +264,10 @@
 		"devdoc": {
 			"methods": {
 				"allowance(address,address)": {
-					"details": "Returns the remaining number of tokens that `spender` will be allowed to spend on behalf of `owner` through {transferFrom}. This is zero by default.    * This value changes when {approve} or {transferFrom} are called."
+					"details": "Returns the remaining number of tokens that `spender` will be allowed to spend on behalf of `owner` through {transferFrom}. This is zero by default.   * This value changes when {approve} or {transferFrom} are called."
 				},
 				"approve(address,uint256)": {
-					"details": "Sets `amount` as the allowance of `spender` over the caller's tokens.    * Returns a boolean value indicating whether the operation succeeded.    * IMPORTANT: Beware that changing an allowance with this method brings the risk that someone may use both the old and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729    * Emits an {Approval} event."
+					"details": "Sets `amount` as the allowance of `spender` over the caller's tokens.   * Returns a boolean value indicating whether the operation succeeded.   * IMPORTANT: Beware that changing an allowance with this method brings the risk that someone may use both the old and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729   * Emits an {Approval} event."
 				},
 				"balanceOf(address)": {
 					"details": "Returns the amount of tokens owned by `account`."
@@ -288,10 +288,10 @@
 					"details": "Returns the amount of tokens in existence."
 				},
 				"transfer(address,uint256)": {
-					"details": "Moves `amount` tokens from the caller's account to `recipient`.    * Returns a boolean value indicating whether the operation succeeded.    * Emits a {Transfer} event."
+					"details": "Moves `amount` tokens from the caller's account to `recipient`.   * Returns a boolean value indicating whether the operation succeeded.   * Emits a {Transfer} event."
 				},
 				"transferFrom(address,address,uint256)": {
-					"details": "Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance.    * Returns a boolean value indicating whether the operation succeeded.    * Emits a {Transfer} event."
+					"details": "Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance.   * Returns a boolean value indicating whether the operation succeeded.   * Emits a {Transfer} event."
 				}
 			}
 		},
@@ -301,22 +301,22 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"usdt.sol": "IBEP20"
+			"contract/usdt.sol": "IBEP20"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
-		"usdt.sol": {
-			"keccak256": "0x9a2d702ba9230013b45b7839ba273b80b17da8a3007bdd624cc38e4bde218b88",
+		"contract/usdt.sol": {
+			"keccak256": "0x2272d80d4df8e3177e5bcf4a8bc00f749cdfad583970e763af0a87c662d42116",
 			"urls": [
-				"bzz-raw://28e62bd28d7a833983abb510bee28e53134e8ad66d3a4a3e16a88c4e1a9d8618",
-				"dweb:/ipfs/QmT4RewhjaT5o5kRG7qc2M7VKVshMFJ59atXNkDMgqHkC7"
+				"bzz-raw://f84aeae5cdbb2c1633a57b53177aa36fd3856c72a44fce8f4be9c101021ab03c",
+				"dweb:/ipfs/QmTxoT5uFDaYYMvG3jgzzveB5JtWWcQgJWHe3XZ8Ks6fwz"
 			]
 		}
 	},

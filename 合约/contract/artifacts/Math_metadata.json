@@ -14,7 +14,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"PancakeFactory.sol": "Math"
+			"contract/PancakeFactory.sol": "Math"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -25,11 +25,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"PancakeFactory.sol": {
-			"keccak256": "0xf45199d3d2d07632e7aa577c406c354a34b5da912994cdbbbd3e30718465a66e",
+		"contract/PancakeFactory.sol": {
+			"keccak256": "0xbe141d9f4324bd678a78bef5939c4d761101685a68c517d59ee4cf3d5446606b",
 			"urls": [
-				"bzz-raw://8f3444e16cdffdab68a72d41f4014f3486fd57da91781decb2ea8d0aaadb782e",
-				"dweb:/ipfs/QmWSfkmFxBfgZvhY3DNexafWEaRqTBrAouPbMcQwLVTGMW"
+				"bzz-raw://3bd6c9dbcae3866f060d5ddc576db6a9341ea99620073dd01f485ae0737c3036",
+				"dweb:/ipfs/QmQaqoPEt5fJH3GDJyX624mJZ6LCL4KcYfcUEtr8QxuksS"
 			]
 		}
 	},

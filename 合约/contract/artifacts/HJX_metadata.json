@@ -656,7 +656,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"HJX.sol": "HJX"
+			"contract/HJX.sol": "HJX"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -664,18 +664,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
-		"HJX.sol": {
-			"keccak256": "0xebdf99819e708d4c5750f4ce9e8678bb59d61ffc17e6a8f43702f74c441f3252",
+		"contract/HJX.sol": {
+			"keccak256": "0xf51909f939d2e08e7fc8811d38853ee36a86332a828f648e54892a48fc382765",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://427cd4c359e1b1f7a98b71f72256d5647213a51479cc2c92397966738d9fea07",
-				"dweb:/ipfs/QmdwmUym8yfCTanKjwjdfv5Y38ZrMXzFxaFwL1FyFJ2obg"
+				"bzz-raw://72e14eac179362f33f53ca772c441dd52bd58523c5fc3a79307b62cc4fb7c19d",
+				"dweb:/ipfs/QmTRrepqXHE7euSDMLBvenyLsPq6JmNDPLGEGz5HFUHdFs"
 			]
 		}
 	},
